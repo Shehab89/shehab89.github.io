@@ -1,407 +1,206 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-	<title>Shehab Al-Masri | Data Science Portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-	<style>
-		:root {
-			--bg-deep: #08101f;
-			--bg-card: #0e1d35;
-			--accent: #38bdf8;
-			--accent2: #818cf8;
-			--text-body: #c8d6e8;
-			--text-head: #e8f1fb;
-		}
+	<head>
+		<title>Shehab Al-Masri | Data Science Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--bg-deep: #0a0f1e;
+				--bg-mid: #111827;
+				--bg-card: #1a2236;
+				--accent: #38bdf8;
+				--text-primary: #e2e8f0;
+				--text-secondary: #8899aa;
+				--border: rgba(56, 189, 248, 0.12);
+			}
 
-		body {
-			background-color: var(--bg-deep);
-			color: var(--text-body);
-			font-family: 'DM Sans', sans-serif;
-			line-height: 1.75;
-		}
+			* { box-sizing: border-box; }
 
-		h1, h2, h3, .section-label { font-family: 'Sora', sans-serif; }
-		h1, h2, h3, strong { color: var(--text-head) !important; }
+			body {
+				background-color: var(--bg-deep);
+				background-image: url("images/site-bg.png");
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				color: var(--text-secondary);
+				font-family: 'DM Sans', system-ui, sans-serif;
+				font-size: 16px;
+				line-height: 1.7;
+				font-weight: 400;
+			}
 
-		/* ── LOGO BOX: white bg so brand colors show ── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 110px;
-			margin-bottom: 1.5rem;
-			background: #ffffff;
-			border-radius: 12px;
-			padding: 16px;
-			box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-			overflow: hidden;
-		}
+			#nav {
+				background: rgba(10, 15, 30, 0.92);
+				backdrop-filter: blur(12px);
+				border-bottom: 1px solid var(--border);
+			}
+			#nav a {
+				color: var(--accent) !important;
+				font-weight: 500;
+				font-size: 0.875rem;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
 
-		.logo-box img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-			filter: none !important;
-			display: block;
-		}
+			h1, h2, h3 {
+				font-family: 'DM Serif Display', Georgia, serif !important;
+				color: var(--text-primary) !important;
+				font-weight: 400;
+				letter-spacing: -0.02em;
+				line-height: 1.2;
+			}
+			h1 { font-size: clamp(2rem, 4vw, 3rem); }
+			h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 1.5em; }
+			h3 { font-size: 1.125rem; margin-bottom: 0.5em; }
+			strong { color: var(--text-primary) !important; font-weight: 600; }
 
-		/* ── CARDS ── */
-		.box.style1 {
-			background: var(--bg-card) !important;
-			border: 1px solid rgba(56,189,248,0.13);
-			border-radius: 16px;
-			height: 100%;
-			transition: all 0.3s ease;
-			padding: 1.5rem;
-		}
+			p {
+				color: var(--text-secondary);
+				font-size: 0.975rem;
+				line-height: 1.75;
+			}
 
-		.box.style1:hover {
-			border-color: var(--accent);
-			transform: translateY(-8px);
-			box-shadow: 0 12px 40px rgba(56,189,248,0.12);
-		}
+			.wrapper {
+				background-color: rgba(10, 15, 30, 0.92) !important;
+				backdrop-filter: blur(16px);
+			}
+			.wrapper.style2 {
+				background-color: rgba(17, 24, 39, 0.95) !important;
+			}
 
-		/* ── IMPACT CARDS ── */
-		.impact-card {
-			background: var(--bg-card);
-			border: 1px solid rgba(56,189,248,0.13);
-			border-radius: 16px;
-			padding: 1.75rem;
-			height: 100%;
-			transition: all 0.3s ease;
-			margin-bottom: 1.5rem;
-		}
-		.impact-card:hover {
-			border-color: var(--accent);
-			transform: translateY(-8px);
-			box-shadow: 0 12px 40px rgba(56,189,248,0.12);
-		}
-		.impact-tag {
-			display: inline-block;
-			font-size: 0.72rem;
-			font-family: 'Sora', sans-serif;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-			color: var(--accent);
-			background: rgba(56,189,248,0.08);
-			border: 1px solid rgba(56,189,248,0.22);
-			border-radius: 99px;
-			padding: 0.2rem 0.8rem;
-			margin-bottom: 0.85rem;
-		}
-		.impact-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-		.impact-card p { font-size: 0.9rem; color: var(--text-body); }
+			#top header p {
+				font-size: 1.05rem;
+				color: var(--accent);
+				font-weight: 500;
+				margin-top: 0.25em;
+			}
+			#top .image.fit img {
+				border-radius: 16px;
+				border: 1px solid var(--border);
+				box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+			}
 
-		/* ── CONTACT ── */
-		.contact-link {
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-			color: var(--text-body);
-			text-decoration: none;
-			padding: 0.65rem 0;
-			border-bottom: 1px solid rgba(56,189,248,0.08);
-			transition: color 0.2s;
-			font-size: 0.95rem;
-		}
-		.contact-link:hover { color: var(--accent); }
-		.contact-icon {
-			width: 36px; height: 36px;
-			border-radius: 8px;
-			background: rgba(56,189,248,0.1);
-			display: flex; align-items: center; justify-content: center;
-			font-size: 1rem;
-			flex-shrink: 0;
-		}
-		.contact-form input,
-		.contact-form textarea {
-			width: 100%;
-			background: var(--bg-card);
-			border: 1px solid rgba(56,189,248,0.15);
-			border-radius: 10px;
-			padding: 0.85rem 1.1rem;
-			color: var(--text-head);
-			font-family: 'DM Sans', sans-serif;
-			font-size: 0.95rem;
-			margin-bottom: 1rem;
-			outline: none;
-			transition: border-color 0.2s;
-			display: block;
-		}
-		.contact-form input:focus,
-		.contact-form textarea:focus { border-color: var(--accent); }
-		.contact-form textarea { min-height: 140px; resize: vertical; }
-		.btn-send {
-			background: linear-gradient(135deg, var(--accent), var(--accent2));
-			color: #08101f;
-			font-family: 'Sora', sans-serif;
-			font-weight: 700;
-			font-size: 0.9rem;
-			letter-spacing: 0.04em;
-			border: none;
-			border-radius: 10px;
-			padding: 0.85rem 2rem;
-			cursor: pointer;
-			transition: opacity 0.2s, transform 0.2s;
-		}
-		.btn-send:hover { opacity: 0.85; transform: translateY(-2px); }
+			/* WHITE BACKGROUND preserves full logo color */
+			.logo-box {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 110px;
+				margin-bottom: 1.25em;
+				background: #ffffff;
+				border-radius: 10px;
+				padding: 14px 20px;
+				box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+				overflow: hidden;
+			}
+			.logo-box img {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+				/* NO filter — full original colors */
+			}
 
-		/* ── SECTION DIVIDER ── */
-		.section-divider {
-			width: 50px; height: 3px;
-			background: linear-gradient(90deg, var(--accent), var(--accent2));
-			border-radius: 2px;
-			margin: 0.75rem auto 2rem;
-		}
+			.box.style1 {
+				background: var(--bg-card) !important;
+				border: 1px solid var(--border) !important;
+				border-radius: 14px;
+				padding: 1.5em !important;
+				height: 100%;
+				transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+			}
+			.box.style1:hover {
+				border-color: var(--accent) !important;
+				transform: translateY(-4px);
+				box-shadow: 0 12px 32px rgba(56, 189, 248, 0.1);
+			}
 
-		/* ── FOOTER ── */
-		#footer {
-			background: rgba(8,16,31,0.95);
-			border-top: 1px solid rgba(56,189,248,0.08);
-			text-align: center;
-			padding: 2rem;
-			color: rgba(200,214,232,0.4);
-			font-size: 0.82rem;
-		}
-	</style>
-</head>
-<body class="is-preload">
+			article.wrapper { padding: 4em 0; }
+			#work header { text-align: center; margin-bottom: 2em; }
+		</style>
+	</head>
+	<body class="is-preload">
 
-	<nav id="nav">
-		<ul class="container">
-			<li><a href="#top">Profile</a></li>
-			<li><a href="#work">Arsenal</a></li>
-			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</nav>
+		<nav id="nav">
+			<ul class="container">
+				<li><a href="#top">Profile</a></li>
+				<li><a href="#work">Arsenal</a></li>
+				<li><a href="#portfolio">Impact</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
 
-	<!-- ═══════════════════════════════ PROFILE ═══════════════════════════════ -->
-	<article id="top" class="wrapper style1">
-		<div class="container">
-			<div class="row">
-				<div class="col-4 col-12-medium">
-					<span class="image fit">
-						<img
-							src="images/intro-bg.png"
-							alt="Shehab Al-Masri"
-							onerror="this.style.display='none'; document.getElementById('profile-fallback').style.display='flex';"
-							style="border-radius:12px;"
-						/>
-						<div id="profile-fallback" style="
-							display:none;
-							width:100%; height:260px;
-							border-radius:12px;
-							background: linear-gradient(135deg, #0e1d35, #1e3a5f);
-							border: 2px solid rgba(56,189,248,0.3);
-							align-items:center; justify-content:center;
-							font-family:'Sora',sans-serif;
-							font-size:4rem;
-							color:#38bdf8;
-						">S</div>
-					</span>
-				</div>
-				<div class="col-8 col-12-medium">
-					<header>
-						<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-						<p>I bridge the gap between high-stakes humanitarian operations and data-driven decision making.</p>
-					</header>
+		<article id="top" class="wrapper style1">
+			<div class="container">
+				<div class="row">
+					<div class="col-4 col-5-large col-12-medium">
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
+					</div>
+					<div class="col-8 col-7-large col-12-medium">
+						<header>
+							<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+							<p>Senior Data Analyst specializing in <strong>Humanitarian Social Impact</strong>.</p>
+						</header>
+						<p>I bridge the gap between complex datasets and high-stakes decision-making. With an MSc from <strong>Utrecht University</strong>, I build scalable pipelines for international NGOs to drive transparency and strategic growth.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<!-- ════════════════════════════════ ARSENAL ════════════════════════════════ -->
-	<article id="work" class="wrapper style2">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>My Arsenal</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-uu">
-							<img src="images/uu-logo.png" alt="Utrecht University" onerror="showFallback('box-uu','UU')" />
-						</div>
-						<h3>Utrecht University</h3>
-						<p>Advanced NLP research and computational discourse analysis.</p>
-					</section>
+		<article id="work" class="wrapper style2">
+			<div class="container">
+				<header><h2>Technical Arsenal</h2></header>
+				<div class="row aln-center">
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
+							<h3>Utrecht University</h3>
+							<p>Applied Data Science research and computational NLP.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/rnw_media.png" alt="RNW Media" /></div>
+							<h3>RNW Media</h3>
+							<p>KPI analysis for global digital monitoring.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
+							<h3>Internews</h3>
+							<p>Securing data integrity and building information pipelines in conflict zones.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
+							<h3>ACLED</h3>
+							<p>Political violence trend modeling and conflict data analytics.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
+							<h3>RECO</h3>
+							<p>Directing humanitarian data management for 17,000+ beneficiaries.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
+							<h3>Mocha Valley</h3>
+							<p>Leveraging survey engineering for agricultural sustainability.</p>
+						</section>
+					</div>
 				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-rnw">
-							<img src="images/rnw_media.png" alt="RNW Media" onerror="showFallback('box-rnw','RNW')" />
-						</div>
-						<h3>RNW Media</h3>
-						<p>KPI analysis for global digital media monitoring.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-internews">
-							<img src="images/internews-logo.jpg" alt="Internews" onerror="showFallback('box-internews','IN')" />
-						</div>
-						<h3>Internews</h3>
-						<p>Securing data integrity and building information pipelines.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-acled">
-							<img src="images/acled.png" alt="ACLED" onerror="showFallback('box-acled','AC')" />
-						</div>
-						<h3>ACLED</h3>
-						<p>Conflict data modeling and political violence analytics.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-reco">
-							<img src="images/reco.png" alt="RECO" onerror="showFallback('box-reco','RE')" />
-						</div>
-						<h3>RECO</h3>
-						<p>Humanitarian data management for 17,000+ beneficiaries.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-mocha">
-							<img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" onerror="showFallback('box-mocha','MV')" />
-						</div>
-						<h3>Mocha Valley</h3>
-						<p>Statistical analysis and survey engineering.</p>
-					</section>
-				</div>
-
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<!-- ════════════════════════════════ IMPACT ═════════════════════════════════ -->
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>Impact</h2>
-				<p>Selected projects where data created real-world change.</p>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">NLP · Research</div>
-						<h3>Computational Discourse Analysis</h3>
-						<p>Developed advanced NLP pipelines at Utrecht University to analyze large-scale political discourse across multilingual corpora.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Conflict Data · Analytics</div>
-						<h3>Political Violence Modeling</h3>
-						<p>Built conflict event classification models and dashboards tracking political violence patterns across high-risk regions at ACLED.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Humanitarian · Data Mgmt</div>
-						<h3>Beneficiary Data System</h3>
-						<p>Designed and managed data infrastructure for 17,000+ humanitarian beneficiaries, ensuring integrity and operational efficiency at RECO.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Media · KPI Analysis</div>
-						<h3>Digital Media Monitoring</h3>
-						<p>Delivered KPI frameworks and audience analytics dashboards to support global digital media impact measurement at RNW Media.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Data Pipelines · Integrity</div>
-						<h3>Information Pipelines</h3>
-						<p>Secured data integrity and engineered automated pipelines to streamline information flow across Internews field operations.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Survey · Statistics</div>
-						<h3>Survey Engineering</h3>
-						<p>Designed statistical sampling frameworks and survey instruments for community-level research at Mocha Valley.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</article>
-
-	<!-- ════════════════════════════════ CONTACT ════════════════════════════════ -->
-	<article id="contact" class="wrapper style4">
-		<div class="container medium">
-			<header style="text-align:center;">
-				<h2>Get in Touch</h2>
-				<p>Open to collaborations, research partnerships, and data consulting opportunities.</p>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row">
-
-				<div class="col-5 col-12-small" style="padding-right:2rem;">
-					<p style="margin-bottom:1.5rem;">Whether you're working on humanitarian data challenges, NLP research, or conflict analytics — let's talk.</p>
-					<a href="mailto:shehab@example.com" class="contact-link">
-						<span class="contact-icon">✉</span> shehab@example.com
-					</a>
-					<a href="https://linkedin.com/in/shehabmasri" target="_blank" class="contact-link">
-						<span class="contact-icon" style="font-family:'Sora',sans-serif;font-size:0.75rem;font-weight:700;">in</span> LinkedIn
-					</a>
-					<a href="https://github.com/shehabmasri" target="_blank" class="contact-link">
-						<span class="contact-icon">⌥</span> GitHub
-					</a>
-				</div>
-
-				<div class="col-7 col-12-small contact-form">
-					<input type="text" placeholder="Your name" />
-					<input type="email" placeholder="Your email" />
-					<textarea placeholder="Your message…"></textarea>
-					<button class="btn-send">Send Message →</button>
-				</div>
-
-			</div>
-		</div>
-	</article>
-
-	<!-- ════════════════════════════════ FOOTER ═════════════════════════════════ -->
-	<div id="footer">
-		© 2025 Shehab Al-Masri · Data Science Portfolio
-	</div>
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/main.js"></script>
-
-	<script>
-		function showFallback(boxId, initials) {
-			var box = document.getElementById(boxId);
-			if (!box) return;
-			box.style.background = 'linear-gradient(135deg, #0e2a4a, #1a3a5c)';
-			box.style.padding = '0';
-			box.innerHTML = '<span style="font-family:Sora,sans-serif;font-size:1.5rem;font-weight:700;color:#38bdf8;letter-spacing:0.05em;">' + initials + '</span>';
-		}
-	</script>
-
-</body>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>
