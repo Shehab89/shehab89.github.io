@@ -1,328 +1,455 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-	<title>Shehab Al-Masri | Data Science Portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-	<style>
-		/* ── ENHANCED THEME VARIABLES (aligned palette) ── */
-		:root {
-			--bg-deep: #030712;
-			--bg-overlay-top: rgba(3, 7, 18, 0.75);
-			--bg-overlay-bottom: rgba(3, 7, 18, 0.92);
-			--glass-card: rgba(17, 24, 39, 0.8);
-			--accent-primary: #38bdf8;
-			--accent-secondary: #818cf8;
-			--text-main: #94a3b8;
-			--text-bright: #f8fafc;
-			--white: #ffffff;
-			--nav-bg: rgba(3, 7, 18, 0.92);
-			--footer-bg: rgba(3, 7, 18, 0.96);
-			--input-bg: rgba(15, 23, 42, 0.6);
-			--border-subtle: rgba(255, 255, 255, 0.08);
-			--border-focus: rgba(56, 189, 248, 0.5);
-		}
+	<head>
+		<title>Shehab Al-Masri | Data Science Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--bg-deep: #0a0f1e;
+				--bg-mid: #111827;
+				--bg-card: #1a2236;
+				--accent: #38bdf8;
+				--text-primary: #e2e8f0;
+				--text-secondary: #8899aa;
+				--border: rgba(56, 189, 248, 0.12);
+			}
 
-		/* ── CORE LAYOUT & BACKGROUND ── */
-		body {
-			background-color: var(--bg-deep);
-			background-image:
-				linear-gradient(var(--bg-overlay-top), var(--bg-overlay-bottom)),
-				url('images/sit_bg.png');
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			color: var(--text-main);
-			font-family: 'DM Sans', sans-serif;
-			line-height: 1.8;
-			margin: 0;
-		}
+			*, *::before, *::after { box-sizing: border-box; }
 
-		h1, h2, h3, .section-label { 
-			font-family: 'Sora', sans-serif; 
-			color: var(--text-bright) !important;
-			letter-spacing: -0.02em;
-		}
+			body {
+				background-color: var(--bg-deep);
+				background-image: url("images/site-bg.png");
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				color: var(--text-secondary);
+				font-family: 'DM Sans', system-ui, sans-serif;
+				font-size: 16px;
+				line-height: 1.7;
+				font-weight: 400;
+				margin: 0;
+				padding: 0;
+			}
 
-		strong { color: var(--accent-primary) !important; }
+			/* ── NAV ── */
+			#nav {
+				background: rgba(10, 15, 30, 0.6);
+				backdrop-filter: blur(12px);
+				border-bottom: 1px solid var(--border);
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				z-index: 100;
+			}
+			#nav ul.container {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				gap: 2rem;
+				list-style: none;
+				margin: 0 auto;
+				padding: 0.85rem 2rem;
+				max-width: 1200px;
+			}
+			#nav ul.container li { margin: 0; padding: 0; }
+			#nav a {
+				color: var(--accent) !important;
+				font-weight: 500;
+				font-size: 0.875rem;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
 
-		/* ── NAVIGATION ── */
-		#nav {
-			background: var(--nav-bg);
-			backdrop-filter: blur(12px);
-			border-bottom: 1px solid var(--border-subtle);
-			position: fixed;
-			width: 100%;
-			z-index: 100;
-		}
+			/* ── HEADINGS ── */
+			h1, h2, h3 {
+				font-family: 'DM Serif Display', Georgia, serif !important;
+				color: var(--text-primary) !important;
+				font-weight: 400;
+				letter-spacing: -0.02em;
+				line-height: 1.2;
+				margin-top: 0;
+			}
+			h1 { font-size: clamp(2rem, 4vw, 3rem); }
+			h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 1.25em; }
+			h3 { font-size: 1.1rem; margin-bottom: 0.4em; }
+			strong { color: var(--text-primary) !important; font-weight: 600; }
 
-		#nav a {
-			font-family: 'Sora', sans-serif;
-			font-weight: 600;
-			color: var(--text-main);
-			transition: color 0.3s;
-		}
+			p {
+				color: var(--text-secondary);
+				font-size: 0.975rem;
+				line-height: 1.75;
+				margin-top: 0;
+			}
 
-		#nav a:hover { color: var(--accent-primary); }
+			/* ── WRAPPERS ── */
+			.wrapper {
+				background-color: transparent !important;
+			}
+			.wrapper.style2 {
+				background-color: transparent !important;
+			}
 
-		/* ── LOGO CONTAINERS ── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 110px;
-			margin-bottom: 1.5rem;
-			background: var(--white); /* White background ensures logo colors pop */
-			border-radius: 16px;
-			padding: 20px;
-			box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-			transition: transform 0.3s ease;
-		}
+			article.wrapper {
+				padding: 5em 0 4em;
+			}
+			/* push first section below fixed nav */
+			#top.wrapper { padding-top: 6em; }
 
-		.logo-box img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-		}
+			/* ── HERO ── */
+			#top .container > .row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 2rem;
+			}
+			#top .col-4 { flex: 0 0 280px; max-width: 320px; }
+			#top .col-8 { flex: 1 1 400px; }
 
-		/* ── GLASS CARDS (Arsenal & Impact) ── */
-		.box.style1, .impact-card {
-			background: var(--glass-card) !important;
-			backdrop-filter: blur(15px);
-			border: 1px solid var(--border-subtle);
-			border-radius: 24px;
-			height: 100%;
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			padding: 2rem;
-		}
+			#top .image.fit {
+				display: block;
+				width: 100%;
+			}
+			#top .image.fit img {
+				display: block;
+				width: 100%;
+				height: auto;
+				border-radius: 16px;
+				border: 1px solid var(--border);
+				box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+			}
 
-		.box.style1:hover, .impact-card:hover {
-			border-color: var(--accent-primary);
-			transform: translateY(-12px);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
-		}
+			#top header { margin-bottom: 1em; }
+			#top header p {
+				font-size: 1.05rem;
+				color: var(--accent);
+				font-weight: 500;
+				margin-top: 0.35em;
+				margin-bottom: 0;
+			}
 
-		/* ── IMPACT TAGS ── */
-		.impact-tag {
-			display: inline-block;
-			font-size: 0.65rem;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.1em;
-			color: var(--accent-primary);
-			background: rgba(56, 189, 248, 0.1);
-			border: 1px solid rgba(56, 189, 248, 0.2);
-			border-radius: 50px;
-			padding: 0.3rem 1rem;
-			margin-bottom: 1rem;
-		}
+			/* ── GRID CARDS ── */
+			#work .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+			#work header { text-align: center; }
 
-		/* ── BUTTONS & CONTACT ── */
-		.btn-send {
-			background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-			color: var(--white) !important;
-			font-family: 'Sora', sans-serif;
-			font-weight: 700;
-			border: none;
-			border-radius: 12px;
-			padding: 1rem 2.5rem;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
-		}
+			.arsenal-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				align-items: stretch;
+			}
 
-		.btn-send:hover {
-			transform: scale(1.03);
-			box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
-		}
+			#work .row.aln-center {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				align-items: stretch;
+			}
+			/* override column classes inside the grid */
+			#work .row.aln-center > [class*="col-"] {
+				width: 100% !important;
+				padding: 0 !important;
+				display: flex;
+			}
 
-		.contact-form input, .contact-form textarea {
-			background: var(--input-bg);
-			border: 1px solid var(--border-subtle);
-			border-radius: 12px;
-			padding: 1rem;
-			color: var(--text-bright);
-			margin-bottom: 1.2rem;
-			width: 100%;
-			box-sizing: border-box;
-		}
+			/* ── IMPACT SECTION ── */
+			#portfolio .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+			#portfolio header { text-align: center; }
 
-		.contact-form input::placeholder,
-		.contact-form textarea::placeholder {
-			color: var(--text-main);
-		}
+			.impact-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				margin-bottom: 3rem;
+			}
+			.impact-stat {
+				background: rgba(26, 34, 54, 0.55);
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+				padding: 1.75em 1.5em;
+				text-align: center;
+				transition: border-color 0.25s, transform 0.25s;
+			}
+			.impact-stat:hover { border-color: var(--accent); transform: translateY(-3px); }
+			.impact-stat .number {
+				font-family: 'DM Serif Display', serif;
+				font-size: 2.5rem;
+				color: var(--accent);
+				line-height: 1;
+				display: block;
+				margin-bottom: 0.3em;
+			}
+			.impact-stat .label { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.4; }
 
-		.contact-form input:focus,
-		.contact-form textarea:focus {
-			border-color: var(--border-focus);
-			outline: none;
-			box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
-		}
+			.project-list {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 1.25rem;
+			}
+			.project-card {
+				background: rgba(26, 34, 54, 0.55);
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+				padding: 1.5em;
+				transition: border-color 0.25s, transform 0.25s;
+			}
+			.project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+			.project-card .tag {
+				display: inline-block;
+				font-size: 0.72rem;
+				font-weight: 600;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--accent);
+				background: rgba(56, 189, 248, 0.1);
+				border-radius: 4px;
+				padding: 0.2em 0.6em;
+				margin-bottom: 0.75em;
+			}
+			.project-card h3 { font-size: 1rem; margin-bottom: 0.4em; }
+			.project-card p { font-size: 0.9rem; margin: 0; }
 
-		/* ── SECTION DIVIDER ── */
-		.section-divider {
-			width: 60px; height: 4px;
-			background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-			border-radius: 10px;
-			margin: 1rem auto 2.5rem;
-		}
+			/* ── CONTACT SECTION ── */
+			#contact { background-color: transparent !important; }
+			#contact .container { max-width: 640px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+			#contact h2 { margin-bottom: 0.4em; }
+			#contact .sub { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2.5em; }
 
-		#footer {
-			background: var(--footer-bg);
-			padding: 3rem;
-			border-top: 1px solid var(--border-subtle);
-			color: var(--text-main);
-			font-size: 0.85rem;
-			text-align: center;
-		}
-	</style>
-</head>
-<body class="is-preload">
+			.contact-links {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 1rem;
+				margin-bottom: 2rem;
+			}
+			.contact-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				padding: 0.7em 1.4em;
+				border-radius: 8px;
+				border: 1px solid var(--border);
+				background: rgba(26, 34, 54, 0.55);
+				color: var(--text-primary) !important;
+				text-decoration: none;
+				font-size: 0.9rem;
+				font-weight: 500;
+				transition: border-color 0.2s, background 0.2s, transform 0.2s;
+			}
+			.contact-link:hover {
+				border-color: var(--accent);
+				background: rgba(56,189,248,0.07);
+				transform: translateY(-2px);
+				color: var(--accent) !important;
+			}
+			.contact-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+			.contact-note { font-size: 0.85rem; color: var(--text-secondary); opacity: 0.7; }
 
-	<nav id="nav">
-		<ul class="container">
-			<li><a href="#top">Profile</a></li>
-			<li><a href="#work">Arsenal</a></li>
-			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</nav>
+			.box.style1 {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				background: rgba(26, 34, 54, 0.55) !important;
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--border) !important;
+				border-radius: 14px;
+				padding: 1.5em !important;
+				transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+			}
+			.box.style1:hover {
+				border-color: var(--accent) !important;
+				transform: translateY(-4px);
+				box-shadow: 0 12px 32px rgba(56, 189, 248, 0.1);
+			}
 
-	<article id="top" class="wrapper style1" style="padding-top: 8em;">
-		<div class="container">
-			<div class="row">
-				<div class="col-4 col-12-medium">
-					<span class="image fit">
-						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);" />
-					</span>
-				</div>
-				<div class="col-8 col-12-medium">
-					<header>
-						<h1 style="font-size: 3.5rem;">Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-						<p style="font-size: 1.25rem;">I bridge the gap between high-stakes humanitarian operations and data-driven decision making.</p>
-					</header>
+			/* ── LOGO BOXES ── */
+			.logo-box {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100px;
+				margin-bottom: 1em;
+				background: #ffffff;
+				border-radius: 8px;
+				padding: 12px 18px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+				overflow: hidden;
+				flex-shrink: 0;
+			}
+			.logo-box img {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+				display: block;
+				/* NO filter — preserves original logo colors */
+			}
+
+			/* ── RESPONSIVE ── */
+			@media (max-width: 700px) {
+				.arsenal-grid { grid-template-columns: 1fr; }
+				.impact-grid { grid-template-columns: repeat(2, 1fr); }
+				.project-list { grid-template-columns: 1fr; }
+				#top .col-4 { flex: 0 0 100%; max-width: 100%; }
+			}
+			@media (max-width: 480px) {
+				.impact-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<nav id="nav">
+			<ul class="container">
+				<li><a href="#top">Profile</a></li>
+				<li><a href="#work">Arsenal</a></li>
+				<li><a href="#portfolio">Impact</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		<article id="top" class="wrapper style1">
+			<div class="container">
+				<div class="row">
+					<div class="col-4 col-5-large col-12-medium">
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
+					</div>
+					<div class="col-8 col-7-large col-12-medium">
+						<header>
+							<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+							<p>Senior Data Analyst specializing in <strong>Humanitarian Social Impact</strong>.</p>
+						</header>
+						<p>I bridge the gap between complex datasets and high-stakes decision-making. With an MSc from <strong>Utrecht University</strong>, I build scalable pipelines for international NGOs to drive transparency and strategic growth.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article id="work" class="wrapper style2">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>My Arsenal</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
+		<article id="work" class="wrapper style2">
+			<div class="container">
+				<header><h2>Technical Arsenal</h2></header>
+				<div class="arsenal-grid">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
+						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
 						<h3>Utrecht University</h3>
-						<p>Advanced NLP research and computational discourse analysis.</p>
+						<p>Applied Data Science research and computational NLP.</p>
 					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div>
+						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW Media" /></div>
 						<h3>RNW Media</h3>
-						<p>KPI analysis for global digital media projects.</p>
+						<p>KPI analysis for global digital monitoring.</p>
 					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 						<h3>Internews</h3>
-						<p>Leading data collection and visualization for field operations.</p>
+						<p>Securing data integrity and building information pipelines in conflict zones.</p>
 					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
 						<h3>ACLED</h3>
-						<p>Conflict and political violence data collection and analytics.</p>
+						<p>Political violence trend modeling and conflict data analytics.</p>
 					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
 						<h3>RECO</h3>
-						<p>Data management for 17,000+ humanitarian beneficiaries.</p>
+						<p>Directing humanitarian data management for 17,000+ beneficiaries.</p>
 					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
 						<h3>Mocha Valley</h3>
-						<p>Lead data collection team and statistical analysis.</p>
+						<p>Leveraging survey engineering for agricultural sustainability.</p>
 					</section>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>Impact</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">NLP · Research</div>
-						<h3>Global Discourse Analysis</h3>
-						<p>Developed NLP pipelines at Utrecht University to analyze large-scale multilingual corpora.</p>
+
+		<!-- ── IMPACT SECTION ── -->
+		<article id="portfolio" class="wrapper style1">
+			<div class="container">
+				<header><h2>Impact</h2></header>
+
+				<div class="impact-grid">
+					<div class="impact-stat">
+						<span class="number">17,000+</span>
+						<span class="label">Beneficiaries covered by humanitarian data systems</span>
+					</div>
+					<div class="impact-stat">
+						<span class="number">6</span>
+						<span class="label">International NGOs &amp; research institutions served</span>
+					</div>
+					<div class="impact-stat">
+						<span class="number">4+</span>
+						<span class="label">Years building data pipelines in conflict-affected regions</span>
 					</div>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Conflict · Modeling</div>
-						<h3>Political Violence Tracking</h3>
-						<p>Built classification models for tracking patterns in high-risk regions at ACLED.</p>
+
+				<div class="project-list">
+					<div class="project-card">
+						<span class="tag">NLP · Research</span>
+						<h3>Computational Discourse Analysis</h3>
+						<p>MSc thesis at Utrecht University applying NLP models to identify narrative shifts in Arabic-language media across conflict contexts.</p>
 					</div>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Humanitarian · Data</div>
-						<h3>Beneficiary Infrastructure</h3>
-						<p>Managed critical data systems for over 17,000 beneficiaries at RECO.</p>
+					<div class="project-card">
+						<span class="tag">Data Engineering</span>
+						<h3>Humanitarian Pipeline — RECO</h3>
+						<p>Designed and deployed end-to-end data management infrastructure tracking 17,000+ beneficiaries across active field programmes.</p>
+					</div>
+					<div class="project-card">
+						<span class="tag">Conflict Analytics</span>
+						<h3>Political Violence Modeling — ACLED</h3>
+						<p>Built trend models and dashboards over conflict event datasets to surface actionable intelligence for policy and response teams.</p>
+					</div>
+					<div class="project-card">
+						<span class="tag">Digital Monitoring</span>
+						<h3>Global KPI Framework — RNW Media</h3>
+						<p>Established a unified KPI analysis system for cross-country digital audience monitoring, improving reporting consistency and speed.</p>
 					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article id="contact" class="wrapper style4">
-		<div class="container medium">
-			<header style="text-align:center;">
-				<h2>Get in Touch</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row">
-				<div class="col-12 contact-form">
-					<form method="post" action="#">
-						<div class="row">
-							<div class="col-6 col-12-small"><input type="text" placeholder="Name" /></div>
-							<div class="col-6 col-12-small"><input type="email" placeholder="Email" /></div>
-							<div class="col-12"><textarea placeholder="Your message..."></textarea></div>
-							<div class="col-12" style="text-align:center;">
-								<button type="submit" class="btn-send">Send Message</button>
-							</div>
-						</div>
-					</form>
+		<!-- ── CONTACT SECTION ── -->
+		<article id="contact" class="wrapper style2">
+			<div class="container">
+				<header><h2>Get in Touch</h2></header>
+				<p class="sub">Open to data roles in humanitarian, policy, and social-impact organisations. Let's connect.</p>
+
+				<div class="contact-links">
+					<a class="contact-link" href="/cdn-cgi/l/email-protection#b2c1dad7dad3d09cd3dedfd3c1c0dbf2d7cad3dfc2ded79cd1dddf">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+						</svg>
+						Email
+					</a>
+					<a class="contact-link" href="https://linkedin.com/in/shehab-almasri" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+						</svg>
+						LinkedIn
+					</a>
+					<a class="contact-link" href="https://github.com/shehab-almasri" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+						</svg>
+						GitHub
+					</a>
+					<a class="contact-link" href="assets/cv-shehab-almasri.pdf" target="_blank">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+						</svg>
+						Download CV
+					</a>
 				</div>
+
+				<p class="contact-note">Based in the Netherlands &middot; Available for remote &amp; on-site roles</p>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<div id="footer">
-		© 2026 Shehab Al-Masri · Data Science Portfolio
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-	<script src="assets/js/main.js"></script>
-
-</body>
-</html>
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
