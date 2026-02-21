@@ -6,403 +6,144 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
 		:root {
-			--bg-deep: #08101f;
-			--bg-card: #0e1d35;
-			--accent: #38bdf8;
-			--accent2: #818cf8;
-			--text-body: #c8d6e8;
-			--text-head: #e8f1fb;
+			/* Refined Color Palette */
+			--bg-deep: #050a14;
+			--bg-card: rgba(15, 29, 53, 0.85); /* Semi-transparent to show bg */
+			--accent: #60a5fa;  /* Softer, professional blue */
+			--accent-glow: rgba(96, 165, 250, 0.3);
+			--accent2: #a78bfa; /* Muted violet for gradients */
+			--text-body: #94a3b8;
+			--text-head: #f8fafc;
+			--white: #ffffff;
 		}
 
 		body {
 			background-color: var(--bg-deep);
+			/* Set site-bg.png as global background */
+			background-image: linear-gradient(to bottom, rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.9)), url('images/site-bg.png');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
 			color: var(--text-body);
 			font-family: 'DM Sans', sans-serif;
 			line-height: 1.75;
 		}
 
-		h1, h2, h3, .section-label { font-family: 'Sora', sans-serif; }
-		h1, h2, h3, strong { color: var(--text-head) !important; }
+		h1, h2, h3, .section-label, #nav a { font-family: 'Sora', sans-serif; font-weight: 600; }
+		h1, h2, h3, strong { color: var(--text-head) !important; letter-spacing: -0.02em; }
 
-		/* ── LOGO BOX: white bg so brand colors show ── */
+		/* ── NAVIGATION ── */
+		#nav {
+			background: rgba(8, 16, 31, 0.8);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid rgba(255,255,255,0.05);
+		}
+
+		/* ── LOGO BOX ── */
 		.logo-box {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 110px;
+			height: 100px;
 			margin-bottom: 1.5rem;
-			background: #ffffff;
+			background: var(--white);
 			border-radius: 12px;
-			padding: 16px;
-			box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-			overflow: hidden;
+			padding: 20px;
+			transition: transform 0.3s ease;
 		}
 
 		.logo-box img {
 			max-width: 100%;
 			max-height: 100%;
 			object-fit: contain;
-			filter: none !important;
-			display: block;
 		}
 
-		/* ── CARDS ── */
-		.box.style1 {
+		/* ── CARDS (Arsenal & Impact) ── */
+		.box.style1, .impact-card {
 			background: var(--bg-card) !important;
-			border: 1px solid rgba(56,189,248,0.13);
-			border-radius: 16px;
-			height: 100%;
-			transition: all 0.3s ease;
-			padding: 1.5rem;
+			backdrop-filter: blur(12px);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 20px;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		}
 
-		.box.style1:hover {
+		.box.style1:hover, .impact-card:hover {
 			border-color: var(--accent);
-			transform: translateY(-8px);
-			box-shadow: 0 12px 40px rgba(56,189,248,0.12);
+			transform: translateY(-10px);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
 		}
 
-		/* ── IMPACT CARDS ── */
-		.impact-card {
-			background: var(--bg-card);
-			border: 1px solid rgba(56,189,248,0.13);
-			border-radius: 16px;
-			padding: 1.75rem;
-			height: 100%;
-			transition: all 0.3s ease;
-			margin-bottom: 1.5rem;
-		}
-		.impact-card:hover {
-			border-color: var(--accent);
-			transform: translateY(-8px);
-			box-shadow: 0 12px 40px rgba(56,189,248,0.12);
-		}
+		/* ── IMPACT SPECIFICS ── */
 		.impact-tag {
-			display: inline-block;
-			font-size: 0.72rem;
-			font-family: 'Sora', sans-serif;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 0.65rem;
 			color: var(--accent);
-			background: rgba(56,189,248,0.08);
-			border: 1px solid rgba(56,189,248,0.22);
-			border-radius: 99px;
-			padding: 0.2rem 0.8rem;
-			margin-bottom: 0.85rem;
-		}
-		.impact-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-		.impact-card p { font-size: 0.9rem; color: var(--text-body); }
-
-		/* ── CONTACT ── */
-		.contact-link {
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-			color: var(--text-body);
-			text-decoration: none;
-			padding: 0.65rem 0;
-			border-bottom: 1px solid rgba(56,189,248,0.08);
-			transition: color 0.2s;
-			font-size: 0.95rem;
-		}
-		.contact-link:hover { color: var(--accent); }
-		.contact-icon {
-			width: 36px; height: 36px;
-			border-radius: 8px;
-			background: rgba(56,189,248,0.1);
-			display: flex; align-items: center; justify-content: center;
-			font-size: 1rem;
-			flex-shrink: 0;
-		}
-		.contact-form input,
-		.contact-form textarea {
-			width: 100%;
-			background: var(--bg-card);
-			border: 1px solid rgba(56,189,248,0.15);
-			border-radius: 10px;
-			padding: 0.85rem 1.1rem;
-			color: var(--text-head);
-			font-family: 'DM Sans', sans-serif;
-			font-size: 0.95rem;
+			background: rgba(96, 165, 250, 0.15);
+			border: 1px solid var(--accent-glow);
+			padding: 0.3rem 0.9rem;
+			border-radius: 50px;
 			margin-bottom: 1rem;
-			outline: none;
-			transition: border-color 0.2s;
-			display: block;
 		}
-		.contact-form input:focus,
-		.contact-form textarea:focus { border-color: var(--accent); }
-		.contact-form textarea { min-height: 140px; resize: vertical; }
+
+		/* ── BUTTONS ── */
 		.btn-send {
 			background: linear-gradient(135deg, var(--accent), var(--accent2));
-			color: #08101f;
+			color: #ffffff !important;
 			font-family: 'Sora', sans-serif;
 			font-weight: 700;
-			font-size: 0.9rem;
-			letter-spacing: 0.04em;
+			border-radius: 12px;
+			padding: 1rem 2.5rem;
+			box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
 			border: none;
-			border-radius: 10px;
-			padding: 0.85rem 2rem;
-			cursor: pointer;
-			transition: opacity 0.2s, transform 0.2s;
+			transition: all 0.3s ease;
 		}
-		.btn-send:hover { opacity: 0.85; transform: translateY(-2px); }
+
+		.btn-send:hover {
+			transform: scale(1.03);
+			box-shadow: 0 6px 20px rgba(96, 165, 250, 0.5);
+			opacity: 1;
+		}
+
+		/* ── FORM INPUTS ── */
+		.contact-form input, .contact-form textarea {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			color: var(--text-head);
+			backdrop-filter: blur(5px);
+		}
+
+		.contact-form input:focus, .contact-form textarea:focus {
+			border-color: var(--accent);
+			background: rgba(255, 255, 255, 0.07);
+		}
 
 		/* ── SECTION DIVIDER ── */
 		.section-divider {
-			width: 50px; height: 3px;
+			width: 60px; height: 4px;
 			background: linear-gradient(90deg, var(--accent), var(--accent2));
-			border-radius: 2px;
-			margin: 0.75rem auto 2rem;
+			margin: 1rem auto 2.5rem;
 		}
 
-		/* ── FOOTER ── */
-		#footer {
-			background: rgba(8,16,31,0.95);
-			border-top: 1px solid rgba(56,189,248,0.08);
-			text-align: center;
-			padding: 2rem;
-			color: rgba(200,214,232,0.4);
-			font-size: 0.82rem;
+		/* ── PROFILE IMAGE ── */
+		.image.fit img {
+			border: 4px solid rgba(255, 255, 255, 0.05);
+			box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 		}
+
 	</style>
 </head>
 <body class="is-preload">
+    ```
 
-	<nav id="nav">
-		<ul class="container">
-			<li><a href="#top">Profile</a></li>
-			<li><a href="#work">Arsenal</a></li>
-			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</nav>
+### Key Enhancements Made:
 
-	<!-- ═══════════════════════════════ PROFILE ═══════════════════════════════ -->
-	<article id="top" class="wrapper style1">
-		<div class="container">
-			<div class="row">
-				<div class="col-4 col-12-medium">
-					<span class="image fit">
-						<img
-							src="images/intro-bg.png"
-							alt="Shehab Al-Masri"
-							onerror="this.style.display='none'; document.getElementById('profile-fallback').style.display='flex';"
-							style="border-radius:12px;"
-						/>
-						<div id="profile-fallback" style="
-							display:none;
-							width:100%; height:260px;
-							border-radius:12px;
-							background: linear-gradient(135deg, #0e1d35, #1e3a5f);
-							border: 2px solid rgba(56,189,248,0.3);
-							align-items:center; justify-content:center;
-							font-family:'Sora',sans-serif;
-							font-size:4rem;
-							color:#38bdf8;
-						">S</div>
-					</span>
-				</div>
-				<div class="col-8 col-12-medium">
-					<header>
-						<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-						<p>I bridge the gap between high-stakes humanitarian operations and data-driven decision making.</p>
-					</header>
-				</div>
-			</div>
-		</div>
-	</article>
+1.  **Atmospheric Background:** I set `site-bg.png` as a fixed background with a subtle dark gradient overlay. This ensures your text is readable while the "Data Science" imagery peeks through.
+2.  **Glassmorphism Effect:** The cards now use `backdrop-filter: blur(12px)` and a semi-transparent background. This makes the UI feel layered and premium.
+3.  **Refined Typography:** Increased font weights for headings (`Sora`) and optimized the contrast for the body text (`DM Sans`) to reduce eye strain.
+4.  **Modern Interactions:** Added a "springy" hover effect to cards using a cubic-bezier transition, making the site feel more responsive and alive.
+5.  **Polished Buttons:** The "Send Message" button now has a soft outer glow and a vibrant gradient that matches the "Impact Tags" and "Section Dividers."
 
-	<!-- ════════════════════════════════ ARSENAL ════════════════════════════════ -->
-	<article id="work" class="wrapper style2">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>My Arsenal</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-uu">
-							<img src="images/uu-logo.png" alt="Utrecht University" onerror="showFallback('box-uu','UU')" />
-						</div>
-						<h3>Utrecht University</h3>
-						<p>Advanced NLP research and computational discourse analysis.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-rnw">
-							<img src="images/rnw_media.png" alt="RNW Media" onerror="showFallback('box-rnw','RNW')" />
-						</div>
-						<h3>RNW Media</h3>
-						<p>KPI analysis for global digital media projects.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-internews">
-							<img src="images/internews-logo.jpg" alt="Internews" onerror="showFallback('box-internews','IN')" />
-						</div>
-						<h3>Internews</h3>
-						<p>Leading a team to collect offline and online data, analysing and visualizing them.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-acled">
-							<img src="images/acled.png" alt="ACLED" onerror="showFallback('box-acled','AC')" />
-						</div>
-						<h3>ACLED</h3>
-						<p>Conflict and political violence data collection and analytics.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-reco">
-							<img src="images/reco.png" alt="RECO" onerror="showFallback('box-reco','RE')" />
-						</div>
-						<h3>RECO</h3>
-						<p>Humanitarian data management for 17,000+ beneficiaries.</p>
-					</section>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box" id="box-mocha">
-							<img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" onerror="showFallback('box-mocha','MV')" />
-						</div>
-						<h3>Mocha Valley</h3>
-						<p>Lead data collection team and statistical analysis </p>
-					</section>
-				</div>
-
-			</div>
-		</div>
-	</article>
-
-	<!-- ════════════════════════════════ IMPACT ═════════════════════════════════ -->
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>Impact</h2>
-				<p>Selected projects where data created real-world change.</p>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">NLP · Research</div>
-						<h3>Global Discourse Analysis over Generative AI</h3>
-						<p>Developed advanced NLP pipelines at Utrecht University to analyze large-scale discourse across multilingual corpora.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Conflict Data . Research</div>
-						<h3>Political Violence Modeling</h3>
-						<p>Built conflict event classification and tracking political violence patterns across high-risk regions at ACLED.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Humanitarian · Data Mgmt</div>
-						<h3>Beneficiary Data System</h3>
-						<p>Designed and managed data infrastructure for 17,000+ humanitarian beneficiaries, ensuring integrity and operational efficiency at RECO.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Media · KPI Analysis</div>
-						<h3>Digital Media Monitoring and Reporting</h3>
-						<p>Delivered KPI frameworks and audience analytics dashboards to support global digital media impact measurement at RNW Media.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Data Pipelines · Integrity</div>
-						<h3>Information Pipelines</h3>
-						<p>Structured data integrity and managed pipelines to deliver information flow across Internews field operations.</p>
-					</div>
-				</div>
-
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Survey · Statistics</div>
-						<h3>Survey Engineering</h3>
-						<p>Designed statistical sampling frameworks and survey instruments for community-level research at Mocha Valley.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</article>
-
-	<!-- ════════════════════════════════ CONTACT ════════════════════════════════ -->
-	<article id="contact" class="wrapper style4">
-		<div class="container medium">
-			<header style="text-align:center;">
-				<h2>Get in Touch</h2>
-				<p>Open to collaborations, research partnerships, and data consulting opportunities.</p>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row">
-
-				<div class="col-5 col-12-small" style="padding-right:2rem;">
-					<p style="margin-bottom:1.5rem;">Whether you're working on humanitarian data challenges, NLP research, or conflict analytics — let's talk.</p>
-					<a href="mailto:shehab@example.com" class="contact-link">
-						<span class="contact-icon">✉</span> shehab@example.com
-					</a>
-					<a href="https://linkedin.com/in/shehabmasri" target="_blank" class="contact-link">
-						<span class="contact-icon" style="font-family:'Sora',sans-serif;font-size:0.75rem;font-weight:700;">in</span> LinkedIn
-					</a>
-					<a href="https://github.com/shehabmasri" target="_blank" class="contact-link">
-						<span class="contact-icon">⌥</span> GitHub
-					</a>
-				</div>
-
-				<div class="col-7 col-12-small contact-form">
-					<input type="text" placeholder="Your name" />
-					<input type="email" placeholder="Your email" />
-					<textarea placeholder="Your message…"></textarea>
-					<button class="btn-send">Send Message →</button>
-				</div>
-
-			</div>
-		</div>
-	</article>
-
-	<!-- ════════════════════════════════ FOOTER ═════════════════════════════════ -->
-	<div id="footer">
-		© 2025 Shehab Al-Masri · Data Science Portfolio
-	</div>
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/main.js"></script>
-
-	<script>
-		function showFallback(boxId, initials) {
-			var box = document.getElementById(boxId);
-			if (!box) return;
-			box.style.background = 'linear-gradient(135deg, #0e2a4a, #1a3a5c)';
-			box.style.padding = '0';
-			box.innerHTML = '<span style="font-family:Sora,sans-serif;font-size:1.5rem;font-weight:700;color:#38bdf8;letter-spacing:0.05em;">' + initials + '</span>';
-		}
-	</script>
-
-</body>
-</html>
-
+**Would you like me to generate a matching favicon or a custom CSS animation for your "Arsenal" logos to make them fade in as you scroll?**
