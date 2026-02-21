@@ -23,6 +23,9 @@
 
 			*, *::before, *::after { box-sizing: border-box; }
 
+			/* Kill any inherited text-shadow from base theme */
+			body, p, h1, h2, h3, a, li, span { text-shadow: none !important; }
+
 			body {
 				background-color: var(--bg-deep);
 				background-image:
@@ -102,18 +105,24 @@
 				justify-content: center;
 				height: 110px;
 				margin-bottom: 1.2em;
-				background: #ffffff;         /* white bg so logos show in full color */
+				background: #ffffff;
 				border-radius: 12px;
 				padding: 16px 20px;
 				box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-				/* NO filter — original logo colors fully intact */
 				transition: transform 0.25s ease, box-shadow 0.25s ease;
+				overflow: hidden;
 			}
 			.logo-box img {
 				max-width: 100%;
 				max-height: 100%;
 				object-fit: contain;
 				display: block;
+			}
+
+			/* Dark-background logos (e.g. RECO) — invert to look clean on white */
+			.logo-box.dark-logo {
+				background: #0e1d35;
+				border: 1px solid rgba(56,189,248,0.15);
 			}
 
 			/* ─── CARDS ───────────────────────────────────────── */
@@ -140,6 +149,10 @@
 				font-size: 0.93rem;
 				line-height: 1.65;
 				margin: 0;
+				text-shadow: none;
+			}
+			.box.style1 h3 {
+				text-shadow: none;
 			}
 
 			/* ─── SECTION DIVIDER ─────────────────────────────── */
@@ -223,7 +236,7 @@
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
+							<div class="logo-box dark-logo"><img src="images/reco.png" alt="RECO" /></div>
 							<h3>RECO</h3>
 							<p>Directing humanitarian data management for 17,000+ beneficiaries.</p>
 						</section>
