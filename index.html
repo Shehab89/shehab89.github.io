@@ -1,149 +1,99 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<title>Shehab Al-Masri | Data Science Portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-	<style>
-		:root {
-			/* Refined Color Palette */
-			--bg-deep: #050a14;
-			--bg-card: rgba(15, 29, 53, 0.85); /* Semi-transparent to show bg */
-			--accent: #60a5fa;  /* Softer, professional blue */
-			--accent-glow: rgba(96, 165, 250, 0.3);
-			--accent2: #a78bfa; /* Muted violet for gradients */
-			--text-body: #94a3b8;
-			--text-head: #f8fafc;
-			--white: #ffffff;
-		}
+<style>
+    :root {
+        /* Professional Data Science Palette */
+        --bg-deep: #030712;
+        --glass-bg: rgba(17, 24, 39, 0.7);
+        --accent-primary: #38bdf8; /* Sky Blue */
+        --accent-secondary: #818cf8; /* Indigo */
+        --text-main: #94a3b8;
+        --text-bright: #f8fafc;
+        --white: #ffffff;
+    }
 
-		body {
-			background-color: var(--bg-deep);
-			/* Set site-bg.png as global background */
-			background-image: linear-gradient(to bottom, rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.9)), url('images/site-bg.png');
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			color: var(--text-body);
-			font-family: 'DM Sans', sans-serif;
-			line-height: 1.75;
-		}
+    body {
+        background-color: var(--bg-deep);
+        /* Applying site-bg.png here */
+        background-image: 
+            linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)), 
+            url('images/site-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-main);
+        font-family: 'DM Sans', sans-serif;
+    }
 
-		h1, h2, h3, .section-label, #nav a { font-family: 'Sora', sans-serif; font-weight: 600; }
-		h1, h2, h3, strong { color: var(--text-head) !important; letter-spacing: -0.02em; }
+    /* ── ENHANCED TYPOGRAPHY ── */
+    h1, h2, h3 { 
+        font-family: 'Sora', sans-serif; 
+        color: var(--text-bright) !important;
+        letter-spacing: -0.03em;
+    }
 
-		/* ── NAVIGATION ── */
-		#nav {
-			background: rgba(8, 16, 31, 0.8);
-			backdrop-filter: blur(10px);
-			border-bottom: 1px solid rgba(255,255,255,0.05);
-		}
+    /* ── GLASS CARDS ── */
+    .box.style1, .impact-card {
+        background: var(--glass-bg) !important;
+        backdrop-filter: blur(12px); /* The "Glass" effect */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
 
-		/* ── LOGO BOX ── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100px;
-			margin-bottom: 1.5rem;
-			background: var(--white);
-			border-radius: 12px;
-			padding: 20px;
-			transition: transform 0.3s ease;
-		}
+    .box.style1:hover, .impact-card:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+    }
 
-		.logo-box img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-		}
+    /* ── LOGO BOX (Clean & Minimal) ── */
+    .logo-box {
+        background: var(--white);
+        border-radius: 15px;
+        height: 100px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
 
-		/* ── CARDS (Arsenal & Impact) ── */
-		.box.style1, .impact-card {
-			background: var(--bg-card) !important;
-			backdrop-filter: blur(12px);
-			border: 1px solid rgba(255, 255, 255, 0.08);
-			border-radius: 20px;
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		}
+    /* ── MODERN BUTTONS ── */
+    .btn-send {
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        color: #fff !important;
+        font-family: 'Sora', sans-serif;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        padding: 1.2rem 2.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(129, 140, 248, 0.4);
+    }
 
-		.box.style1:hover, .impact-card:hover {
-			border-color: var(--accent);
-			transform: translateY(-10px);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
-		}
+    .btn-send:hover {
+        opacity: 0.9;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(129, 140, 248, 0.6);
+    }
 
-		/* ── IMPACT SPECIFICS ── */
-		.impact-tag {
-			font-weight: 700;
-			font-size: 0.65rem;
-			color: var(--accent);
-			background: rgba(96, 165, 250, 0.15);
-			border: 1px solid var(--accent-glow);
-			padding: 0.3rem 0.9rem;
-			border-radius: 50px;
-			margin-bottom: 1rem;
-		}
+    /* ── IMPACT TAGS ── */
+    .impact-tag {
+        background: rgba(56, 189, 248, 0.15);
+        color: var(--accent-primary);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 
-		/* ── BUTTONS ── */
-		.btn-send {
-			background: linear-gradient(135deg, var(--accent), var(--accent2));
-			color: #ffffff !important;
-			font-family: 'Sora', sans-serif;
-			font-weight: 700;
-			border-radius: 12px;
-			padding: 1rem 2.5rem;
-			box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
-			border: none;
-			transition: all 0.3s ease;
-		}
-
-		.btn-send:hover {
-			transform: scale(1.03);
-			box-shadow: 0 6px 20px rgba(96, 165, 250, 0.5);
-			opacity: 1;
-		}
-
-		/* ── FORM INPUTS ── */
-		.contact-form input, .contact-form textarea {
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			color: var(--text-head);
-			backdrop-filter: blur(5px);
-		}
-
-		.contact-form input:focus, .contact-form textarea:focus {
-			border-color: var(--accent);
-			background: rgba(255, 255, 255, 0.07);
-		}
-
-		/* ── SECTION DIVIDER ── */
-		.section-divider {
-			width: 60px; height: 4px;
-			background: linear-gradient(90deg, var(--accent), var(--accent2));
-			margin: 1rem auto 2.5rem;
-		}
-
-		/* ── PROFILE IMAGE ── */
-		.image.fit img {
-			border: 4px solid rgba(255, 255, 255, 0.05);
-			box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-		}
-
-	</style>
-</head>
-<body class="is-preload">
-    ```
-
-### Key Enhancements Made:
-
-1.  **Atmospheric Background:** I set `site-bg.png` as a fixed background with a subtle dark gradient overlay. This ensures your text is readable while the "Data Science" imagery peeks through.
-2.  **Glassmorphism Effect:** The cards now use `backdrop-filter: blur(12px)` and a semi-transparent background. This makes the UI feel layered and premium.
-3.  **Refined Typography:** Increased font weights for headings (`Sora`) and optimized the contrast for the body text (`DM Sans`) to reduce eye strain.
-4.  **Modern Interactions:** Added a "springy" hover effect to cards using a cubic-bezier transition, making the site feel more responsive and alive.
-5.  **Polished Buttons:** The "Send Message" button now has a soft outer glow and a vibrant gradient that matches the "Impact Tags" and "Section Dividers."
-
-**Would you like me to generate a matching favicon or a custom CSS animation for your "Arsenal" logos to make them fade in as you scroll?**
+    /* ── NAVIGATION ── */
+    #nav {
+        background: rgba(3, 7, 18, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+</style>
