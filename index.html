@@ -8,23 +8,23 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
-		/* ── متغيرات التصميم الحديث ── */
+		/* ── HIGH-TECH DESIGN SYSTEM ── */
 		:root {
-			--bg-dark: #090e16;           /* لون داكن عميق */
-			--glass: rgba(15, 23, 42, 0.7); /* تأثير الزجاج */
-			--accent: #38bdf8;            /* أزرق سماوي نيون */
-			--accent-glow: rgba(56, 189, 248, 0.3);
-			--text-main: #94a3b8;         /* رمادي ناعم */
-			--text-light: #f8fafc;        /* أبيض جليدي */
+			--bg-dark: #020617;           /* Deep Obsidian */
+			--glass: rgba(15, 23, 42, 0.75); /* Frosted Surface */
+			--accent: #38bdf8;            /* Electric Sky Blue */
+			--accent-glow: rgba(56, 189, 248, 0.25);
+			--text-main: #94a3b8;         /* Muted Slate */
+			--text-bright: #f8fafc;       /* Ice White */
 			--white: #ffffff;
 		}
 
-		/* ── إعدادات الخلفية ── */
+		/* ── BACKGROUND INTEGRATION ── */
 		body {
 			background-color: var(--bg-dark);
-			/* هنا تم وضع صورتك كخلفية ثابتة مع طبقة تظليل لجعل النص مقروءاً */
+			/* site-bg.png is set as a fixed background with a subtle dark wash */
 			background-image: 
-				linear-gradient(rgba(9, 14, 22, 0.85), rgba(9, 14, 22, 0.9)), 
+				linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.9)), 
 				url('images/site-bg.png');
 			background-size: cover;
 			background-position: center;
@@ -32,35 +32,58 @@
 			color: var(--text-main);
 			font-family: 'DM Sans', sans-serif;
 			line-height: 1.8;
+			margin: 0;
 		}
 
-		h1, h2, h3, .section-label { 
+		h1, h2, h3 { 
 			font-family: 'Sora', sans-serif; 
-			color: var(--text-light) !important;
-			letter-spacing: -0.02em;
+			color: var(--text-bright) !important;
+			letter-spacing: -0.03em;
 		}
 
 		strong { color: var(--accent) !important; }
 
-		/* ── التنقل (Nav) ── */
+		/* ── GLASS NAVIGATION ── */
 		#nav {
-			background: rgba(9, 14, 22, 0.8);
-			backdrop-filter: blur(12px);
+			background: rgba(2, 6, 23, 0.8);
+			backdrop-filter: blur(15px);
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 			position: fixed;
 			width: 100%;
 			z-index: 1000;
 		}
 
-		#nav a { color: var(--text-main); font-weight: 600; transition: 0.3s; }
+		#nav a { 
+			color: var(--text-main); 
+			font-weight: 600; 
+			text-transform: uppercase; 
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+		}
+
 		#nav a:hover { color: var(--accent); }
 
-		/* ── كروت العمل (Arsenal & Impact) ── */
+		/* ── LOGO BRANDING ── */
+		.logo-box {
+			background: var(--white);
+			border-radius: 18px;
+			height: 105px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 18px;
+			margin-bottom: 1.5rem;
+			transition: all 0.3s ease;
+		}
+
+		.logo-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+		/* ── GLASS CONTENT CARDS ── */
 		.box.style1, .impact-card {
 			background: var(--glass) !important;
-			backdrop-filter: blur(15px); /* تأثير التغبيش الزجاجي */
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 24px;
+			backdrop-filter: blur(12px);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 28px;
 			padding: 2.5rem;
 			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			height: 100%;
@@ -68,70 +91,56 @@
 
 		.box.style1:hover, .impact-card:hover {
 			border-color: var(--accent);
-			transform: translateY(-15px);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+			transform: translateY(-12px);
+			box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
 		}
 
-		/* ── صناديق الشعارات ── */
-		.logo-box {
-			background: var(--white);
-			border-radius: 16px;
-			height: 100px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 15px;
-			margin-bottom: 1.5rem;
-			box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+		/* ── SECTION DIVIDER ── */
+		.section-divider {
+			width: 60px; height: 4px;
+			background: linear-gradient(90deg, var(--accent), #6366f1);
+			border-radius: 10px;
+			margin: 1.2rem auto 2.8rem;
 		}
 
-		.logo-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
-
-		/* ── الأزرار (Buttons) ── */
+		/* ── BUTTONS ── */
 		.btn-send {
 			background: linear-gradient(135deg, var(--accent), #6366f1);
 			color: #fff !important;
 			font-family: 'Sora', sans-serif;
 			font-weight: 700;
 			border: none;
-			border-radius: 12px;
-			padding: 1rem 3rem;
+			border-radius: 14px;
+			padding: 1.1rem 3.5rem;
 			cursor: pointer;
 			transition: all 0.3s ease;
-			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+			box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
 		}
 
 		.btn-send:hover {
 			transform: scale(1.05);
-			box-shadow: 0 15px 30px rgba(56, 189, 248, 0.5);
+			box-shadow: 0 15px 35px rgba(56, 189, 248, 0.5);
 		}
 
-		/* ── الحقول (Form Inputs) ── */
+		/* ── FORM FIELDS ── */
 		.contact-form input, .contact-form textarea {
-			background: rgba(255, 255, 255, 0.05);
+			background: rgba(255, 255, 255, 0.03);
 			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 12px;
-			color: var(--text-light);
+			border-radius: 14px;
+			color: var(--text-bright);
 			padding: 1.2rem;
 			margin-bottom: 1.2rem;
 			width: 100%;
+			font-family: 'DM Sans', sans-serif;
 		}
 
 		.contact-form input:focus { border-color: var(--accent); outline: none; }
 
-		/* ── فواصل الأقسام ── */
-		.section-divider {
-			width: 50px; height: 4px;
-			background: var(--accent);
-			border-radius: 10px;
-			margin: 1.2rem auto 2.5rem;
-		}
-
 		#footer {
-			background: rgba(9, 14, 22, 0.95);
+			background: rgba(2, 6, 23, 0.95);
 			padding: 4rem;
-			font-size: 0.8rem;
-			color: var(--text-main);
+			text-align: center;
+			font-size: 0.85rem;
 			border-top: 1px solid rgba(255, 255, 255, 0.05);
 		}
 	</style>
@@ -140,10 +149,10 @@
 
 	<nav id="nav">
 		<ul class="container">
-			<li><a href="#top">الملف الشخصي</a></li>
-			<li><a href="#work">الشركاء</a></li>
-			<li><a href="#portfolio">المشاريع</a></li>
-			<li><a href="#contact">تواصل معي</a></li>
+			<li><a href="#top">Profile</a></li>
+			<li><a href="#work">Arsenal</a></li>
+			<li><a href="#portfolio">Impact</a></li>
+			<li><a href="#contact">Contact</a></li>
 		</ul>
 	</nav>
 
@@ -157,8 +166,8 @@
 				</div>
 				<div class="col-8 col-12-medium">
 					<header>
-						<h1 style="font-size: 3.5rem;">أهلاً، أنا <strong>شهاب المصري</strong>.</h1>
-						<p style="font-size: 1.4rem;">أقوم بسد الفجوة بين العمليات الإنسانية المعقدة واتخاذ القرارات القائمة على البيانات.</p>
+						<h1 style="font-size: 3.5rem;">Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+						<p style="font-size: 1.3rem;">Bridging the gap between humanitarian operations and data-driven intelligence.</p>
 					</header>
 				</div>
 			</div>
@@ -168,7 +177,7 @@
 	<article id="work" class="wrapper style2">
 		<div class="container">
 			<header style="text-align:center;">
-				<h2>شركاء النجاح</h2>
+				<h2>My Arsenal</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row aln-center">
@@ -176,21 +185,21 @@
 					<section class="box style1">
 						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
 						<h3>Utrecht University</h3>
-						<p>أبحاث متقدمة في معالجة اللغات الطبيعية (NLP).</p>
+						<p>NLP research and computational discourse analysis.</p>
 					</section>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 						<h3>Internews</h3>
-						<p>قيادة جمع وتحليل البيانات الميدانية وتصورها.</p>
+						<p>Leading field data collection and visualization strategies.</p>
 					</section>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
 						<h3>ACLED</h3>
-						<p>تحليل بيانات الصراعات والعنف السياسي العالمي.</p>
+						<p>Analyzing global conflict and political violence data.</p>
 					</section>
 				</div>
 			</div>
@@ -200,18 +209,18 @@
 	<article id="contact" class="wrapper style4">
 		<div class="container medium">
 			<header style="text-align:center;">
-				<h2>لنتحدث عن مشروعك القادم</h2>
+				<h2>Get in Touch</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row">
 				<div class="col-12 contact-form">
 					<form method="post" action="#">
 						<div class="row">
-							<div class="col-6 col-12-small"><input type="text" placeholder="الاسم" /></div>
-							<div class="col-6 col-12-small"><input type="email" placeholder="البريد الإلكتروني" /></div>
-							<div class="col-12"><textarea placeholder="كيف يمكنني مساعدتك؟"></textarea></div>
+							<div class="col-6 col-12-small"><input type="text" placeholder="Name" /></div>
+							<div class="col-6 col-12-small"><input type="email" placeholder="Email" /></div>
+							<div class="col-12"><textarea placeholder="Your message..."></textarea></div>
 							<div class="col-12" style="text-align:center;">
-								<button type="submit" class="btn-send">إرسال الرسالة</button>
+								<button type="submit" class="btn-send">Send Message</button>
 							</div>
 						</div>
 					</form>
@@ -221,7 +230,7 @@
 	</article>
 
 	<div id="footer">
-		© 2026 شهاب المصري · خبير علوم البيانات
+		© 2026 Shehab Al-Masri · Data Science Portfolio
 	</div>
 
 	<script src="assets/js/jquery.min.js"></script>
