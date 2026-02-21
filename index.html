@@ -8,24 +8,23 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
-		/* ── HIGH-END DARK THEME VARIABLES ── */
+		/* ── متغيرات التصميم الحديث ── */
 		:root {
-			--bg-deep: #0f1218;           /* Deep charcoal to match image */
-			--glass-card: rgba(22, 27, 34, 0.7); 
-			--accent-primary: #38bdf8;    /* Electric Cyan */
-			--accent-secondary: #f472b6;  /* Soft Pink for highlight contrast */
-			--text-main: #9ca3af;         /* Muted slate */
-			--text-bright: #f3f4f6;       /* Crisp white */
+			--bg-dark: #090e16;           /* لون داكن عميق */
+			--glass: rgba(15, 23, 42, 0.7); /* تأثير الزجاج */
+			--accent: #38bdf8;            /* أزرق سماوي نيون */
+			--accent-glow: rgba(56, 189, 248, 0.3);
+			--text-main: #94a3b8;         /* رمادي ناعم */
+			--text-light: #f8fafc;        /* أبيض جليدي */
 			--white: #ffffff;
-			--gold-glow: rgba(245, 158, 11, 0.2); /* Matches the hex-icons in your bg */
 		}
 
-		/* ── BACKGROUND IMPLEMENTATION ── */
+		/* ── إعدادات الخلفية ── */
 		body {
-			background-color: var(--bg-deep);
-			/* Using your site-bg.png as a fixed, non-scrolling background */
+			background-color: var(--bg-dark);
+			/* هنا تم وضع صورتك كخلفية ثابتة مع طبقة تظليل لجعل النص مقروءاً */
 			background-image: 
-				linear-gradient(rgba(15, 18, 24, 0.85), rgba(15, 18, 24, 0.95)), 
+				linear-gradient(rgba(9, 14, 22, 0.85), rgba(9, 14, 22, 0.9)), 
 				url('images/site-bg.png');
 			background-size: cover;
 			background-position: center;
@@ -33,149 +32,107 @@
 			color: var(--text-main);
 			font-family: 'DM Sans', sans-serif;
 			line-height: 1.8;
-			margin: 0;
 		}
 
-		h1, h2, h3 { 
+		h1, h2, h3, .section-label { 
 			font-family: 'Sora', sans-serif; 
-			color: var(--text-bright) !important;
-			letter-spacing: -0.03em;
+			color: var(--text-light) !important;
+			letter-spacing: -0.02em;
 		}
 
-		strong { color: var(--accent-primary) !important; font-weight: 700; }
+		strong { color: var(--accent) !important; }
 
-		/* ── NAVIGATION (Glassmorphism) ── */
+		/* ── التنقل (Nav) ── */
 		#nav {
-			background: rgba(15, 18, 24, 0.8);
-			backdrop-filter: blur(15px);
+			background: rgba(9, 14, 22, 0.8);
+			backdrop-filter: blur(12px);
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 			position: fixed;
 			width: 100%;
 			z-index: 1000;
 		}
 
-		#nav a {
-			font-family: 'Sora', sans-serif;
-			font-weight: 600;
-			text-transform: uppercase;
-			font-size: 0.75rem;
-			letter-spacing: 0.1em;
-			color: var(--text-main);
-			transition: all 0.3s;
-		}
+		#nav a { color: var(--text-main); font-weight: 600; transition: 0.3s; }
+		#nav a:hover { color: var(--accent); }
 
-		#nav a:hover { color: var(--accent-primary); }
-
-		/* ── PROFILE SECTION ── */
-		#top { padding: 10em 0 6em 0; }
-		
-		.image.fit img {
-			border-radius: 30px;
-			border: 1px solid rgba(255,255,255,0.1);
-			box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-		}
-
-		/* ── LOGO BOXES (Keeping brand integrity) ── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100px;
-			margin-bottom: 1.5rem;
-			background: var(--white);
-			border-radius: 20px;
-			padding: 20px;
-			transition: all 0.4s ease;
-		}
-
-		.logo-box img {
-			max-width: 85%;
-			max-height: 85%;
-			object-fit: contain;
-		}
-
-		/* ── ARSENAL & IMPACT CARDS ── */
+		/* ── كروت العمل (Arsenal & Impact) ── */
 		.box.style1, .impact-card {
-			background: var(--glass-card) !important;
-			backdrop-filter: blur(10px);
-			border: 1px solid rgba(255, 255, 255, 0.05);
-			border-radius: 28px;
-			height: 100%;
-			transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+			background: var(--glass) !important;
+			backdrop-filter: blur(15px); /* تأثير التغبيش الزجاجي */
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 24px;
 			padding: 2.5rem;
-			display: flex;
-			flex-direction: column;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			height: 100%;
 		}
 
 		.box.style1:hover, .impact-card:hover {
-			border-color: var(--accent-primary);
-			transform: translateY(-15px) scale(1.02);
-			background: rgba(30, 41, 59, 0.8) !important;
-			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-glow);
+			border-color: var(--accent);
+			transform: translateY(-15px);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
 		}
 
-		/* ── TAG STYLING ── */
-		.impact-tag {
-			display: inline-block;
-			font-size: 0.6rem;
-			font-weight: 800;
-			text-transform: uppercase;
-			color: var(--accent-primary);
-			background: rgba(56, 189, 248, 0.1);
-			border: 1px solid rgba(56, 189, 248, 0.2);
-			border-radius: 6px;
-			padding: 0.3rem 0.8rem;
-			margin-bottom: 1.2rem;
+		/* ── صناديق الشعارات ── */
+		.logo-box {
+			background: var(--white);
+			border-radius: 16px;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 15px;
+			margin-bottom: 1.5rem;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 		}
 
-		/* ── BUTTONS ── */
+		.logo-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+		/* ── الأزرار (Buttons) ── */
 		.btn-send {
-			background: linear-gradient(135deg, var(--accent-primary), #6366f1);
+			background: linear-gradient(135deg, var(--accent), #6366f1);
 			color: #fff !important;
 			font-family: 'Sora', sans-serif;
 			font-weight: 700;
 			border: none;
-			border-radius: 15px;
-			padding: 1.2rem 3rem;
+			border-radius: 12px;
+			padding: 1rem 3rem;
 			cursor: pointer;
 			transition: all 0.3s ease;
-			box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
 		}
 
 		.btn-send:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 15px 35px rgba(56, 189, 248, 0.5);
-			filter: brightness(1.1);
+			transform: scale(1.05);
+			box-shadow: 0 15px 30px rgba(56, 189, 248, 0.5);
 		}
 
-		/* ── FORMS ── */
+		/* ── الحقول (Form Inputs) ── */
 		.contact-form input, .contact-form textarea {
-			background: rgba(0, 0, 0, 0.2);
+			background: rgba(255, 255, 255, 0.05);
 			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 14px;
+			border-radius: 12px;
+			color: var(--text-light);
 			padding: 1.2rem;
-			color: var(--text-bright);
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.2rem;
 			width: 100%;
-			transition: border-color 0.3s;
 		}
 
-		.contact-form input:focus { border-color: var(--accent-primary); outline: none; }
+		.contact-form input:focus { border-color: var(--accent); outline: none; }
 
-		/* ── SECTION DIVIDER ── */
+		/* ── فواصل الأقسام ── */
 		.section-divider {
-			width: 40px; height: 5px;
-			background: var(--accent-primary);
+			width: 50px; height: 4px;
+			background: var(--accent);
 			border-radius: 10px;
-			margin: 1.5rem auto 3rem;
+			margin: 1.2rem auto 2.5rem;
 		}
 
 		#footer {
-			background: #090b0f;
+			background: rgba(9, 14, 22, 0.95);
 			padding: 4rem;
-			text-align: center;
 			font-size: 0.8rem;
-			letter-spacing: 0.05em;
+			color: var(--text-main);
+			border-top: 1px solid rgba(255, 255, 255, 0.05);
 		}
 	</style>
 </head>
@@ -183,26 +140,25 @@
 
 	<nav id="nav">
 		<ul class="container">
-			<li><a href="#top">Profile</a></li>
-			<li><a href="#work">Arsenal</a></li>
-			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Contact</a></li>
+			<li><a href="#top">الملف الشخصي</a></li>
+			<li><a href="#work">الشركاء</a></li>
+			<li><a href="#portfolio">المشاريع</a></li>
+			<li><a href="#contact">تواصل معي</a></li>
 		</ul>
 	</nav>
 
-	<article id="top" class="wrapper style1">
+	<article id="top" class="wrapper style1" style="padding-top: 10em;">
 		<div class="container">
 			<div class="row">
 				<div class="col-4 col-12-medium">
 					<span class="image fit">
-						<img src="images/intro-bg.png" alt="Shehab Al-Masri" />
+						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:30px; border: 2px solid var(--accent-glow);" />
 					</span>
 				</div>
 				<div class="col-8 col-12-medium">
 					<header>
-						<h1 style="font-size: 4rem; line-height: 1.1;">Shehab <br><strong>Al-Masri</strong></h1>
-						<p style="font-size: 1.4rem; color: var(--text-bright);">Data Scientist & Humanitarian Insights Specialist</p>
-						<p>I transform complex data into actionable intelligence for global operations and research.</p>
+						<h1 style="font-size: 3.5rem;">أهلاً، أنا <strong>شهاب المصري</strong>.</h1>
+						<p style="font-size: 1.4rem;">أقوم بسد الفجوة بين العمليات الإنسانية المعقدة واتخاذ القرارات القائمة على البيانات.</p>
 					</header>
 				</div>
 			</div>
@@ -212,7 +168,7 @@
 	<article id="work" class="wrapper style2">
 		<div class="container">
 			<header style="text-align:center;">
-				<h2>The Arsenal</h2>
+				<h2>شركاء النجاح</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row aln-center">
@@ -220,54 +176,22 @@
 					<section class="box style1">
 						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
 						<h3>Utrecht University</h3>
-						<p>NLP research and computational discourse analysis.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div>
-						<h3>RNW Media</h3>
-						<p>KPI analysis and global digital media analytics.</p>
+						<p>أبحاث متقدمة في معالجة اللغات الطبيعية (NLP).</p>
 					</section>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 						<h3>Internews</h3>
-						<p>Leading field data visualization and info-pipelines.</p>
+						<p>قيادة جمع وتحليل البيانات الميدانية وتصورها.</p>
 					</section>
 				</div>
-				</div>
-		</div>
-	</article>
-
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header style="text-align:center;">
-				<h2>Impact Projects</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
 				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">NLP · Research</div>
-						<h3>Global Discourse Analysis</h3>
-						<p>Large-scale multilingual NLP pipelines developed at Utrecht University.</p>
-					</div>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Conflict · Modeling</div>
-						<h3>Political Violence Tracking</h3>
-						<p>Event classification and tracking for high-risk regions with ACLED.</p>
-					</div>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="impact-card">
-						<div class="impact-tag">Data Mgmt</div>
-						<h3>Humanitarian Infrastructure</h3>
-						<p>Managed systems for 17,000+ beneficiaries with RECO.</p>
-					</div>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
+						<h3>ACLED</h3>
+						<p>تحليل بيانات الصراعات والعنف السياسي العالمي.</p>
+					</section>
 				</div>
 			</div>
 		</div>
@@ -276,18 +200,18 @@
 	<article id="contact" class="wrapper style4">
 		<div class="container medium">
 			<header style="text-align:center;">
-				<h2>Let's Collaborate</h2>
+				<h2>لنتحدث عن مشروعك القادم</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row">
 				<div class="col-12 contact-form">
 					<form method="post" action="#">
 						<div class="row">
-							<div class="col-6 col-12-small"><input type="text" placeholder="Full Name" /></div>
-							<div class="col-6 col-12-small"><input type="email" placeholder="Email Address" /></div>
-							<div class="col-12"><textarea placeholder="How can I help with your data challenges?"></textarea></div>
+							<div class="col-6 col-12-small"><input type="text" placeholder="الاسم" /></div>
+							<div class="col-6 col-12-small"><input type="email" placeholder="البريد الإلكتروني" /></div>
+							<div class="col-12"><textarea placeholder="كيف يمكنني مساعدتك؟"></textarea></div>
 							<div class="col-12" style="text-align:center;">
-								<button type="submit" class="btn-send">Initiate Contact</button>
+								<button type="submit" class="btn-send">إرسال الرسالة</button>
 							</div>
 						</div>
 					</form>
@@ -297,7 +221,7 @@
 	</article>
 
 	<div id="footer">
-		&copy; 2026 SHEHAB AL-MASRI | BUILT FOR DATA EXCELLENCE
+		© 2026 شهاب المصري · خبير علوم البيانات
 	</div>
 
 	<script src="assets/js/jquery.min.js"></script>
