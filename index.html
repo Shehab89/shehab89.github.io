@@ -8,8 +8,8 @@
 		<style>
 			/* CORE THEME OVERRIDE */
 			body {
-				background-color: #0f172a; /* Deep calm navy/charcoal */
-				background-image: url("images/site-bg.png"); /* */
+				background-color: #0f172a;
+				background-image: url("images/site-bg.png");
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
@@ -22,7 +22,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				height: 100px; /* Fixed height for all 6 logos */
+				height: 100px;
 				margin-bottom: 1.5em;
 				background: rgba(255, 255, 255, 0.03); 
 				border-radius: 8px;
@@ -33,7 +33,7 @@
 				max-width: 80%;
 				max-height: 80%;
 				object-fit: contain; 
-				filter: brightness(0) invert(1); /* Uniform white logos */
+				filter: brightness(0) invert(1);
 				opacity: 0.9;
 			}
 
@@ -43,18 +43,17 @@
 				backdrop-filter: blur(10px);
 			}
 
-			/* ARSENAL CARDS */
-			.box.style1 {
+			/* GRID CARDS */
+			.box.style1, .box.style2 {
 				background: rgba(30, 41, 59, 0.6) !important;
 				border: 1px solid rgba(255, 255, 255, 0.1);
 				height: 100%; 
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between;
 				transition: all 0.3s ease;
 			}
 			
-			.box.style1:hover {
+			.box.style1:hover, .box.style2:hover {
 				border-color: #10b981; 
 				transform: translateY(-5px);
 			}
@@ -81,7 +80,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span> </div>
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
+					</div>
 					<div class="col-8 col-7-large col-12-medium">
 						<header>
 							<h1><strong>Shehab Al-Masri</strong></h1>
@@ -155,21 +155,21 @@
 				<div class="row">
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style2">
-							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="GenAI" /></a>
 							<h3><a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank">Decoding GenAI</a></h3>
 							<p>NLP architecture and global discourse analysis thesis.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style2">
-							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="Automated Insights" /></a>
 							<h3><a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank">Automated Insights</a></h3>
 							<p>End-to-end KPI automation for media impact reporting.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style2">
-							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="Rooted in Trust" /></a>
 							<h3><a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank">Rooted in Trust</a></h3>
 							<p>Data engineering for information ecosystem analysis.</p>
 						</article>
