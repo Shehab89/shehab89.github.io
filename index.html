@@ -1,193 +1,140 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-	<title>Shehab Al-Masri | Data Science Portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-	<style>
-		/* ─── VARIABLES ──────────────────────────────────────── */
-		:root {
-			--bg-deep:    #0f172a; /* Calm obsidian navy */
-			--bg-card:    rgba(30, 41, 59, 0.7);
-			--bg-card-h:  rgba(30, 41, 59, 0.9);
-			--accent:     #10b981; /* Emerald Green for Social Impact */
-			--accent-blue: #38bdf8;
-			--text-body:  #94a3b8;
-			--text-head:  #f8fafc;
-			--radius:     16px;
-		}
+	<head>
+		<title>Shehab Al-Masri | Data Science Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* CORE THEME */
+			body {
+				background-color: #0f172a;
+				background-image: url("images/site-bg.png"); /* */
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				color: #94a3b8;
+				/* HIGH-READABILITY PROFESSIONAL FONT */
+				font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+				line-height: 1.6;
+			}
 
-		body {
-			background-color: var(--bg-deep);
-			background-image: url("images/site-bg.png"); /* */
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			color: var(--text-body);
-			font-family: 'DM Sans', sans-serif;
-			line-height: 1.75;
-		}
+			/* NAV BAR */
+			#nav { background-color: rgba(15, 23, 42, 0.9); }
+			#nav a { color: #38bdf8 !important; font-weight: 600; }
 
-		/* ─── LOGO ALIGNMENT ───────────────────────── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100px;
-			margin-bottom: 1.5em;
-			background: #ffffff; /* Restores original logo colors */
-			border-radius: 12px;
-			padding: 15px;
-			box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-			overflow: hidden;
-		}
-		.logo-box img { 
-			max-width: 90%; 
-			max-height: 85%; 
-			object-fit: contain; /* Prevents stretching */
-		}
+			/* LOGO BOXES: Restoring colors while maintaining alignment */
+			.logo-box {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 120px; 
+				margin-bottom: 1.5em;
+				background: #ffffff; /* White background makes original logo colors visible */
+				border-radius: 12px;
+				padding: 15px;
+				box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+			}
 
-		/* ─── GLASS CARDS ────────────────────────────────────── */
-		.box.style1 {
-			background: var(--bg-card) !important;
-			backdrop-filter: blur(12px);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: var(--radius);
-			transition: all 0.3s ease;
-			height: 100%;
-		}
-		.box.style1:hover {
-			border-color: var(--accent);
-			transform: translateY(-5px);
-		}
+			.logo-box img {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain; /* */
+				/* REMOVED FILTER TO RESTORE ORIGINAL COLORS */
+			}
 
-		h1, h2, h3 { font-family: 'Sora', sans-serif; color: var(--text-head) !important; }
-		strong { color: var(--accent-blue) !important; }
+			/* SECTION STYLING */
+			.wrapper {
+				background-color: rgba(15, 23, 42, 0.95) !important;
+				backdrop-filter: blur(10px);
+			}
 
-		/* ─── STATS ──────────────────────────────────────────── */
-		.stat-card {
-			background: rgba(15, 23, 42, 0.8);
-			border: 1px solid rgba(56, 189, 248, 0.2);
-			border-radius: 14px;
-			padding: 1.5rem;
-			text-align: center;
-		}
-		.stat-number { font-size: 1.75rem; font-weight: 700; color: var(--accent-blue); }
-	</style>
-</head>
-<body class="is-preload">
+			h1, h2, h3, strong { 
+				color: #f1f5f9 !important; 
+				letter-spacing: -0.01em;
+			}
 
-	<nav id="nav">
-		<ul class="container">
-			<li><a href="#top">Profile</a></li>
-			<li><a href="#work">Arsenal</a></li>
-			<li><a href="#about">About</a></li>
-			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</nav>
+			.box.style1 {
+				background: rgba(30, 41, 59, 0.4) !important;
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				height: 100%;
+				transition: border-color 0.3s ease;
+			}
+			.box.style1:hover { border-color: #38bdf8; }
+		</style>
+	</head>
+	<body class="is-preload">
 
-	<article id="top" class="wrapper style1">
-		<div class="container">
-			<div class="row">
-				<div class="col-4 col-5-large col-12-medium">
-					<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
-				</div>
-				<div class="col-8 col-7-large col-12-medium">
-					<header>
-						<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-						<p>Senior Data Analyst specialized in <strong>Humanitarian Social Impact</strong>.</p>
-					</header>
-					<p>I bridge the gap between complex datasets and high-stakes decision-making. With an MSc from <strong>Utrecht University</strong>, I build scalable pipelines for international NGOs to drive transparency and strategic growth.</p>
+		<nav id="nav">
+			<ul class="container">
+				<li><a href="#top">Profile</a></li>
+				<li><a href="#work">Arsenal</a></li>
+				<li><a href="#portfolio">Impact</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		<article id="top" class="wrapper style1">
+			<div class="container">
+				<div class="row">
+					<div class="col-4 col-5-large col-12-medium">
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span> </div>
+					<div class="col-8 col-7-large col-12-medium">
+						<header>
+							<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+							<p>Senior Data Analyst specializing in <strong>Humanitarian Social Impact</strong>.</p>
+						</header>
+						<p>I bridge the gap between complex datasets and high-stakes decision-making. With an MSc from <strong>Utrecht University</strong>, I build scalable pipelines for international NGOs to drive transparency and strategic growth.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article id="work" class="wrapper style2">
-		<div class="container">
-			<header><h2>Technical Arsenal</h2></header>
-			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
-						<h3>Utrecht University</h3>
-						<p>Applied Data Science research and computational NLP.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div>
-						<h3>RNW Media</h3>
-						<p>Automated real-time KPI engines for global media monitoring.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
-						<h3>Internews</h3>
-						<p>Securing data integrity and building pipelines in conflict zones.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
-						<h3>ACLED</h3>
-						<p>Conflict data modeling and political violence analysis.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
-						<h3>RECO</h3>
-						<p>Managing humanitarian data for 17,000+ beneficiaries.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha" /></div>
-						<h3>Mocha Valley</h3>
-						<p>Statistical survey engineering for agricultural sustainability.</p>
-					</section>
+		<article id="work" class="wrapper style2">
+			<div class="container">
+				<header><h2>Technical Arsenal</h2></header>
+				<div class="row aln-center">
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div> <h3>Utrecht University</h3>
+							<p>Applied Data Science research and computational NLP.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div> <h3>RNW Media</h3>
+							<p>KPI analysis for global digital monitoring.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div> <h3>Internews</h3>
+							<p>Securing data integrity and building information pipelines in conflict zones.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div> <h3>ACLED</h3>
+							<p>Political violence trend modeling and conflict data analytics.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div> <h3>RECO</h3>
+							<p>Directing humanitarian data management for 17,000+ beneficiaries.</p>
+						</section>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<section class="box style1">
+							<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha" /></div> <h3>Mocha Valley</h3>
+							<p>Leveraging survey engineering for agricultural sustainability.</p>
+						</section>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header><h2>Impact Pipelines</h2></header>
-			<div class="row">
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style1">
-						<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="Thesis" /></a>
-						<h3><a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank">Decoding GenAI</a></h3>
-						<p>NLP architecture and global discourse analysis thesis.</p>
-					</article>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style1">
-						<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="RNW" /></a>
-						<h3><a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank">Media Impact KPIs</a></h3>
-						<p>Technical implementation of automated reporting engines.</p>
-					</article>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style1">
-						<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="Internews" /></a>
-						<h3><a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank">Rooted in Trust</a></h3>
-						<p>Data engineering for information ecosystem analysis.</p>
-					</article>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>
