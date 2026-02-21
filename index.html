@@ -8,7 +8,7 @@
 		<style>
 			/* CORE THEME OVERRIDE */
 			body {
-				background-color: #0f172a;
+				background-color: #0f172a; /* Deep calm navy/charcoal */
 				background-image: url("images/site-bg.png"); /* */
 				background-size: cover;
 				background-position: center;
@@ -22,40 +22,48 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				height: 120px; /* Fixed height for all logos to align text below */
+				height: 100px; /* Fixed height for all 6 logos */
 				margin-bottom: 1.5em;
-				background: rgba(255, 255, 255, 0.05); /* subtle background for logos with white backgrounds */
+				background: rgba(255, 255, 255, 0.03); 
 				border-radius: 8px;
-				padding: 15px;
+				padding: 10px;
 			}
 
 			.logo-container img {
-				max-width: 100%;
-				max-height: 100%;
-				object-fit: contain; /* Prevents stretching */
-				filter: brightness(0) invert(1); /* Forces logos to appear white for engineering theme */
-				opacity: 0.85;
+				max-width: 80%;
+				max-height: 80%;
+				object-fit: contain; 
+				filter: brightness(0) invert(1); /* Uniform white logos */
+				opacity: 0.9;
+			}
+
+			/* SECTION WRAPPERS */
+			.wrapper {
+				background-color: rgba(15, 23, 42, 0.92) !important;
+				backdrop-filter: blur(10px);
 			}
 
 			/* ARSENAL CARDS */
 			.box.style1 {
-				background: rgba(30, 41, 59, 0.7) !important; /* Slate Glassmorphism */
+				background: rgba(30, 41, 59, 0.6) !important;
 				border: 1px solid rgba(255, 255, 255, 0.1);
-				height: 100%; /* Ensures all boxes in a row are same height */
-				padding: 2.5em 2em;
+				height: 100%; 
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
 				transition: all 0.3s ease;
 			}
 			
 			.box.style1:hover {
-				border-color: #10b981; /* Emerald green highlight */
+				border-color: #10b981; 
 				transform: translateY(-5px);
 			}
 
 			h1, h2, h3 { color: #f8fafc !important; }
-
-			/* NAV BAR */
-			#nav { background-color: rgba(2, 6, 23, 0.95); }
-			#nav a { color: #38bdf8 !important; }
+			
+			/* PROJECT LINKS */
+			.box.style2 h3 a { color: #f8fafc !important; text-decoration: none; }
+			.box.style2 h3 a:hover { color: #38bdf8 !important; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -73,14 +81,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
-					</div>
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span> </div>
 					<div class="col-8 col-7-large col-12-medium">
 						<header>
 							<h1><strong>Shehab Al-Masri</strong></h1>
 						</header>
 						<p>Architecting scalable <strong>Data Infrastructure</strong>. Utrecht University MSc graduate specializing in <strong>Python, SQL, and Cloud Engineering</strong>.</p>
-						<a href="#work" class="button large scrolly">View Technical Arsenal</a>
+						<a href="#work" class="button large scrolly">View Technical Architecture</a>
 					</div>
 				</div>
 			</div>
@@ -95,57 +102,77 @@
 				<div class="row aln-center">
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/uu-logo.png" alt="Utrecht" />
-							</div>
+							<div class="logo-container"><img src="images/uu-logo.png" alt="UU" /></div>
 							<h3>Utrecht University</h3>
 							<p>Applied Data Science research and computational NLP.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/rnw_media.png" alt="RNW" />
-							</div>
+							<div class="logo-container"><img src="images/rnw_media.png" alt="RNW" /></div>
 							<h3>RNW Media</h3>
 							<p>Pipeline automation and 15+ real-time KPI dashboards.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/internews-logo.jpg" alt="Internews" />
-							</div>
+							<div class="logo-container"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 							<h3>Internews</h3>
 							<p>Engineering robust data pipelines for information integrity.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/acled.png" alt="ACLED" />
-							</div>
+							<div class="logo-container"><img src="images/acled.png" alt="ACLED" /></div>
 							<h3>ACLED</h3>
 							<p>Political violence data modeling and conflict research pipelines.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/reco.png" alt="RECO" />
-							</div>
+							<div class="logo-container"><img src="images/reco.png" alt="RECO" /></div>
 							<h3>RECO</h3>
 							<p>Humanitarian data management and beneficiary analytics.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container">
-								<img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" />
-							</div>
+							<div class="logo-container"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
 							<h3>Mocha Valley</h3>
 							<p>Statistical analysis and survey engineering for agriculture.</p>
 						</section>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article id="portfolio" class="wrapper style3">
+			<div class="container">
+				<header>
+					<h2>Impact Pipelines</h2>
+					<p>Technical implementation of data-driven research.</p>
+				</header>
+				<div class="row">
+					<div class="col-4 col-6-medium col-12-small">
+						<article class="box style2">
+							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+							<h3><a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank">Decoding GenAI</a></h3>
+							<p>NLP architecture and global discourse analysis thesis.</p>
+						</article>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<article class="box style2">
+							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<h3><a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank">Automated Insights</a></h3>
+							<p>End-to-end KPI automation for media impact reporting.</p>
+						</article>
+					</div>
+					<div class="col-4 col-6-medium col-12-small">
+						<article class="box style2">
+							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+							<h3><a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank">Rooted in Trust</a></h3>
+							<p>Data engineering for information ecosystem analysis.</p>
+						</article>
 					</div>
 				</div>
 			</div>
