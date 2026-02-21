@@ -6,177 +6,136 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+	
 	<style>
-		/* ── ENHANCED THEME VARIABLES (aligned palette) ── */
 		:root {
 			--bg-deep: #030712;
-			--bg-overlay-top: rgba(3, 7, 18, 0.75);
-			--bg-overlay-bottom: rgba(3, 7, 18, 0.92);
-			--glass-card: rgba(17, 24, 39, 0.8);
+			--bg-overlay: linear-gradient(180deg, rgba(3, 7, 18, 0.75) 0%, rgba(3, 7, 18, 0.95) 100%);
+			--glass-card: rgba(17, 24, 39, 0.65);
 			--accent-primary: #38bdf8;
 			--accent-secondary: #818cf8;
 			--text-main: #94a3b8;
 			--text-bright: #f8fafc;
 			--white: #ffffff;
-			--nav-bg: rgba(3, 7, 18, 0.92);
-			--footer-bg: rgba(3, 7, 18, 0.96);
-			--input-bg: rgba(15, 23, 42, 0.6);
-			--border-subtle: rgba(255, 255, 255, 0.08);
-			--border-focus: rgba(56, 189, 248, 0.5);
+			--nav-bg: rgba(3, 7, 18, 0.85);
+			--border-subtle: rgba(255, 255, 255, 0.05);
+			--card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 		}
 
-		/* ── CORE LAYOUT & BACKGROUND ── */
+		/* ── CORE ENHANCEMENTS ── */
 		body {
 			background-color: var(--bg-deep);
-			background-image:
-				linear-gradient(var(--bg-overlay-top), var(--bg-overlay-bottom)),
-				url('images/sit_bg.png');
+			background-image: var(--bg-overlay), url('images/sit_bg.png');
 			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
 			color: var(--text-main);
 			font-family: 'DM Sans', sans-serif;
-			line-height: 1.8;
+			scroll-behavior: smooth;
 			margin: 0;
 		}
 
-		h1, h2, h3, .section-label { 
-			font-family: 'Sora', sans-serif; 
+		h1, h2, h3 { 
+			font-family: 'Montserrat', sans-serif; 
 			color: var(--text-bright) !important;
-			letter-spacing: -0.02em;
+			letter-spacing: -0.03em;
 		}
 
-		strong { color: var(--accent-primary) !important; }
+		/* ── SMOOTH ENTRANCE ANIMATIONS ── */
+		@keyframes fadeInUp {
+			from { opacity: 0; transform: translateY(20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		.reveal { animation: fadeInUp 0.8s ease forwards; }
 
 		/* ── NAVIGATION ── */
 		#nav {
 			background: var(--nav-bg);
-			backdrop-filter: blur(12px);
+			backdrop-filter: blur(15px);
+			-webkit-backdrop-filter: blur(15px);
 			border-bottom: 1px solid var(--border-subtle);
-			position: fixed;
-			width: 100%;
-			z-index: 100;
+			padding: 0.5rem 0;
 		}
 
 		#nav a {
 			font-family: 'Sora', sans-serif;
+			font-size: 0.9rem;
 			font-weight: 600;
-			color: var(--text-main);
-			transition: color 0.3s;
-		}
-
-		#nav a:hover { color: var(--accent-primary); }
-
-		/* ── LOGO CONTAINERS ── */
-		.logo-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 110px;
-			margin-bottom: 1.5rem;
-			background: var(--white); /* White background ensures logo colors pop */
-			border-radius: 16px;
-			padding: 20px;
-			box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-			transition: transform 0.3s ease;
-		}
-
-		.logo-box img {
-			max-width: 100%;
-			max-height: 100%;
-			object-fit: contain;
-		}
-
-		/* ── GLASS CARDS (Arsenal & Impact) ── */
-		.box.style1, .impact-card {
-			background: var(--glass-card) !important;
-			backdrop-filter: blur(15px);
-			border: 1px solid var(--border-subtle);
-			border-radius: 24px;
-			height: 100%;
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			padding: 2rem;
-		}
-
-		.box.style1:hover, .impact-card:hover {
-			border-color: var(--accent-primary);
-			transform: translateY(-12px);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
-		}
-
-		/* ── IMPACT TAGS ── */
-		.impact-tag {
-			display: inline-block;
-			font-size: 0.65rem;
-			font-weight: 700;
 			text-transform: uppercase;
-			letter-spacing: 0.1em;
-			color: var(--accent-primary);
-			background: rgba(56, 189, 248, 0.1);
-			border: 1px solid rgba(56, 189, 248, 0.2);
-			border-radius: 50px;
-			padding: 0.3rem 1rem;
-			margin-bottom: 1rem;
+			letter-spacing: 0.05em;
+			color: var(--text-main);
+			transition: all 0.3s ease;
 		}
 
-		/* ── BUTTONS & CONTACT ── */
+		#nav a:hover { color: var(--accent-primary); text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+
+		/* ── HERO SECTION ── */
+		#top { padding: 12em 0 8em; }
+		#top h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; }
+		#top p { max-width: 600px; font-size: 1.35rem; line-height: 1.6; }
+
+		/* ── ARSENAL BOXES ── */
+		.logo-box {
+			background: var(--white);
+			border-radius: 20px;
+			padding: 25px;
+			filter: grayscale(20%) brightness(0.95);
+			transition: all 0.4s ease;
+		}
+
+		.box.style1:hover .logo-box {
+			filter: grayscale(0%) brightness(1);
+			transform: scale(1.05);
+		}
+
+		/* ── IMPACT CARDS ── */
+		.impact-card, .box.style1 {
+			background: var(--glass-card) !important;
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid var(--border-subtle);
+			box-shadow: var(--card-shadow);
+			border-radius: 28px;
+		}
+
+		.impact-card:hover, .box.style1:hover {
+			border-color: rgba(56, 189, 248, 0.4);
+			background: rgba(17, 24, 39, 0.8) !important;
+			transform: translateY(-10px) scale(1.02);
+		}
+
+		.impact-tag {
+			font-family: 'Sora', sans-serif;
+			background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+			color: var(--accent-primary);
+			border: 1px solid rgba(56, 189, 248, 0.3);
+			padding: 0.4rem 1.2rem;
+			font-size: 0.7rem;
+		}
+
+		/* ── BUTTONS ── */
 		.btn-send {
 			background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-			color: var(--white) !important;
-			font-family: 'Sora', sans-serif;
-			font-weight: 700;
-			border: none;
-			border-radius: 12px;
-			padding: 1rem 2.5rem;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
+			border-radius: 50px;
+			padding: 1.2rem 3.5rem;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
 		}
 
 		.btn-send:hover {
-			transform: scale(1.03);
-			box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
+			transform: scale(1.05) translateY(-3px);
+			box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
 		}
 
-		.contact-form input, .contact-form textarea {
-			background: var(--input-bg);
-			border: 1px solid var(--border-subtle);
-			border-radius: 12px;
-			padding: 1rem;
-			color: var(--text-bright);
-			margin-bottom: 1.2rem;
-			width: 100%;
-			box-sizing: border-box;
-		}
-
-		.contact-form input::placeholder,
-		.contact-form textarea::placeholder {
-			color: var(--text-main);
-		}
-
-		.contact-form input:focus,
-		.contact-form textarea:focus {
-			border-color: var(--border-focus);
-			outline: none;
-			box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
-		}
-
-		/* ── SECTION DIVIDER ── */
-		.section-divider {
-			width: 60px; height: 4px;
-			background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-			border-radius: 10px;
-			margin: 1rem auto 2.5rem;
-		}
-
+		/* ── FOOTER ── */
 		#footer {
-			background: var(--footer-bg);
-			padding: 3rem;
-			border-top: 1px solid var(--border-subtle);
-			color: var(--text-main);
-			font-size: 0.85rem;
-			text-align: center;
+			background: transparent;
+			padding: 5rem 0;
+			font-family: 'Sora', sans-serif;
+			opacity: 0.6;
 		}
 	</style>
 </head>
@@ -191,18 +150,18 @@
 		</ul>
 	</nav>
 
-	<article id="top" class="wrapper style1" style="padding-top: 8em;">
+	<article id="top" class="wrapper style1 reveal">
 		<div class="container">
-			<div class="row">
+			<div class="row aln-middle">
 				<div class="col-4 col-12-medium">
 					<span class="image fit">
-						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);" />
+						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:32px; border: 1px solid var(--border-subtle);">
 					</span>
 				</div>
 				<div class="col-8 col-12-medium">
 					<header>
-						<h1 style="font-size: 3.5rem;">Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-						<p style="font-size: 1.25rem;">I bridge the gap between high-stakes humanitarian operations and data-driven decision making.</p>
+						<h1>The Data <br><strong>Strategist.</strong></h1>
+						<p>I bridge the gap between high-stakes humanitarian operations and <strong>data-driven intelligence</strong>.</p>
 					</header>
 				</div>
 			</div>
@@ -211,49 +170,49 @@
 
 	<article id="work" class="wrapper style2">
 		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>My Arsenal</h2>
+			<header style="text-align:center; margin-bottom: 4em;">
+				<h2 class="reveal">My Arsenal</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.1s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
+						<div class="logo-box"><img src="images/uu-logo.png" alt="UU"></div>
 						<h3>Utrecht University</h3>
 						<p>Advanced NLP research and computational discourse analysis.</p>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.2s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div>
+						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW"></div>
 						<h3>RNW Media</h3>
 						<p>KPI analysis for global digital media projects.</p>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.3s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
+						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews"></div>
 						<h3>Internews</h3>
 						<p>Leading data collection and visualization for field operations.</p>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.4s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
+						<div class="logo-box"><img src="images/acled.png" alt="ACLED"></div>
 						<h3>ACLED</h3>
 						<p>Conflict and political violence data collection and analytics.</p>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.5s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
+						<div class="logo-box"><img src="images/reco.png" alt="RECO"></div>
 						<h3>RECO</h3>
 						<p>Data management for 17,000+ humanitarian beneficiaries.</p>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-6-medium col-12-small reveal" style="transition-delay: 0.6s;">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
+						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley"></div>
 						<h3>Mocha Valley</h3>
 						<p>Lead data collection team and statistical analysis.</p>
 					</section>
@@ -264,65 +223,73 @@
 
 	<article id="portfolio" class="wrapper style3">
 		<div class="container">
-			<header class="style1" style="text-align:center;">
-				<h2>Impact</h2>
+			<header style="text-align:center; margin-bottom: 4em;">
+				<h2>Proven Impact</h2>
 				<div class="section-divider"></div>
 			</header>
 			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-12-small reveal">
 					<div class="impact-card">
-						<div class="impact-tag">NLP · Research</div>
-						<h3>Global Discourse Analysis</h3>
-						<p>Developed NLP pipelines at Utrecht University to analyze large-scale multilingual corpora.</p>
+						<div class="impact-tag">NLP · RESEARCH</div>
+						<h3>Global Discourse</h3>
+						<p>Built NLP pipelines to analyze cross-cultural multilingual corpora.</p>
 					</div>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-12-small reveal" style="transition-delay: 0.2s;">
 					<div class="impact-card">
-						<div class="impact-tag">Conflict · Modeling</div>
-						<h3>Political Violence Tracking</h3>
-						<p>Built classification models for tracking patterns in high-risk regions at ACLED.</p>
+						<div class="impact-tag">CONFLICT · MODELING</div>
+						<h3>Violence Tracking</h3>
+						<p>Developed classification models for high-risk regional tracking.</p>
 					</div>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-4 col-12-small reveal" style="transition-delay: 0.3s;">
 					<div class="impact-card">
-						<div class="impact-tag">Humanitarian · Data</div>
-						<h3>Beneficiary Infrastructure</h3>
-						<p>Managed critical data systems for over 17,000 beneficiaries at RECO.</p>
+						<div class="impact-tag">HUMANITARIAN · DATA</div>
+						<h3>Infrastructure</h3>
+						<p>Optimized systems for managing 17,000+ beneficiary records.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</article>
 
-	<article id="contact" class="wrapper style4">
+	<article id="contact" class="wrapper style4 reveal">
 		<div class="container medium">
 			<header style="text-align:center;">
-				<h2>Get in Touch</h2>
+				<h2>Let's Collaborate</h2>
+				<p>I'm available for research, consulting, or full-time opportunities.</p>
 				<div class="section-divider"></div>
 			</header>
-			<div class="row">
-				<div class="col-12 contact-form">
-					<form method="post" action="#">
-						<div class="row">
-							<div class="col-6 col-12-small"><input type="text" placeholder="Name" /></div>
-							<div class="col-6 col-12-small"><input type="email" placeholder="Email" /></div>
-							<div class="col-12"><textarea placeholder="Your message..."></textarea></div>
-							<div class="col-12" style="text-align:center;">
-								<button type="submit" class="btn-send">Send Message</button>
-							</div>
-						</div>
-					</form>
+			<form method="post" action="#" class="contact-form">
+				<div class="row gtr-50">
+					<div class="col-6 col-12-small"><input type="text" placeholder="Name" /></div>
+					<div class="col-6 col-12-small"><input type="email" placeholder="Email" /></div>
+					<div class="col-12"><textarea placeholder="Your message..."></textarea></div>
+					<div class="col-12" style="text-align:center;">
+						<button type="submit" class="btn-send">Send Signal</button>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</article>
 
-	<div id="footer">
-		© 2026 Shehab Al-Masri · Data Science Portfolio
-	</div>
+	<footer id="footer">
+		© 2026 Shehab Al-Masri · Powered by Data Science
+	</footer>
 
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-	<script src="assets/js/main.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script>
+		// Simple Scroll Reveal Effect
+		$(window).on('scroll', function() {
+			$('.reveal').each(function() {
+				let top = $(this).offset().top;
+				let bottom = top + $(this).outerHeight();
+				let windowBottom = $(window).scrollTop() + $(window).height();
+				if (windowBottom > top + 100) {
+					$(this).css('opacity', '1').css('transform', 'translateY(0)');
+				}
+			});
+		});
+	</script>
 </body>
 </html>
