@@ -8,35 +8,19 @@
 		<style>
 			/* CYBER-INDUSTRIAL THEME OVERRIDE */
 			body {
-				background-color: #020617; /* Even deeper midnight */
-				background-image: url("images/site-bg.png");
+				background-color: #020617;
+				background-image: url("images/site-bg.png"); /* */
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
-				color: #cbd5e1; /* Lighter, cleaner slate text */
-				font-family: 'Inter', system-ui, sans-serif;
+				color: #cbd5e1;
+				font-family: 'Inter', sans-serif;
 			}
 
-			/* MODERN NAV */
-			#nav {
-				background-color: rgba(2, 6, 23, 0.9);
-				backdrop-filter: blur(12px);
-				border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Subtle Gold border */
-			}
-			#nav a { color: #e2e8f0 !important; font-weight: 500; }
-			#nav a:hover { color: #fbbf24 !important; } /* Gold highlight */
-
-			/* GLASS PANEL WRAPPERS */
+			/* SECTION WRAPPERS */
 			.wrapper {
-				background-color: rgba(15, 23, 42, 0.85) !important;
-				backdrop-filter: blur(8px);
-			}
-			.wrapper.style1 { background-color: transparent !important; }
-
-			/* TYPOGRAPHY */
-			h1, h2, h3, strong { 
-				color: #f8fafc !important; 
-				text-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+				background-color: rgba(15, 23, 42, 0.92) !important;
+				backdrop-filter: blur(10px);
 			}
 
 			/* UNIFORM LOGO CONTAINERS */
@@ -51,11 +35,11 @@
 				padding: 10px;
 			}
 			.logo-wrapper img {
-				max-height: 70%;
-				max-width: 80%;
+				max-height: 75%;
+				max-width: 85%;
 				object-fit: contain;
-				filter: brightness(0) invert(1); /* Keeps logos consistently white */
-				opacity: 0.8;
+				filter: brightness(0) invert(1); /* */
+				opacity: 0.9;
 			}
 
 			/* ENGINEERING CARDS */
@@ -63,41 +47,17 @@
 				background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
 				border: 1px solid rgba(255, 255, 255, 0.08);
 				border-radius: 16px;
-				box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-				height: 100%;
+				height: 100%; /* Ensures 6 boxes align */
+				display: flex;
+				flex-direction: column;
+				transition: all 0.3s ease;
 			}
 			.box.style1:hover {
-				border-color: #fbbf24; /* Glow Gold on hover */
-				transform: translateY(-10px) scale(1.02);
-				box-shadow: 0 30px 60px rgba(251, 191, 36, 0.1);
+				border-color: #fbbf24; 
+				transform: translateY(-8px);
 			}
 
-			/* ACTION BUTTONS */
-			.button {
-				background: linear-gradient(to right, #fbbf24, #f59e0b) !important; /* Gold gradient */
-				color: #020617 !important;
-				font-weight: 700 !important;
-				border: none !important;
-				border-radius: 8px;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-			}
-			.button:hover {
-				filter: brightness(1.1);
-				box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
-			}
-
-			/* SOCIAL BUTTONS */
-			.social li a {
-				background-color: #1e293b !important;
-				color: #fbbf24 !important;
-				border: 1px solid rgba(251, 191, 36, 0.2);
-			}
-			.social li a:hover {
-				background-color: #fbbf24 !important;
-				color: #020617 !important;
-			}
+			h1, h2, h3 { color: #f8fafc !important; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -115,16 +75,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit" style="border: 4px solid rgba(251, 191, 36, 0.2); border-radius: 50%; overflow: hidden;">
-							<img src="images/intro-bg.png" alt="Shehab Al-Masri" />
-						</span>
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab" /></span>
 					</div>
 					<div class="col-8 col-7-large col-12-medium">
 						<header>
 							<h1><strong>Shehab Al-Masri</strong></h1>
 						</header>
-						<p>Architecting scalable <strong>Data Infrastructure</strong> and deriving insights from chaos. Utrecht University MSc graduate specialized in <strong>Python, SQL, and Cloud Engineering</strong>.</p>
-						<a href="#work" class="button large scrolly">View Technical Architecture</a>
+						<p>Architecting scalable <strong>Data Infrastructure</strong>. Utrecht University MSc graduate specializing in <strong>Python, SQL, and Cloud Engineering</strong>.</p>
 					</div>
 				</div>
 			</div>
@@ -134,12 +91,12 @@
 			<div class="container">
 				<header>
 					<h2>Technical Arsenal</h2>
-					<p>Engineered solutions for global organizations across complex data ecosystems.</p>
+					<p>Engineered data solutions for global organizations.</p>
 				</header>
 				<div class="row aln-center">
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-wrapper"><img src="images/uu-logo.png" alt="Utrecht" /></div>
+							<div class="logo-wrapper"><img src="images/uu-logo.png" alt="UU" /></div>
 							<h3>Utrecht University</h3>
 							<p>Applied Data Science research and computational NLP.</p>
 						</section>
@@ -155,7 +112,7 @@
 						<section class="box style1">
 							<div class="logo-wrapper"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 							<h3>Internews</h3>
-							<p>Information management and data integrity engineering.</p>
+							<p>Engineering robust data pipelines for information integrity.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
@@ -187,27 +144,26 @@
 			<div class="container">
 				<header>
 					<h2>Impact Pipelines</h2>
-					<p>Technical implementation of high-stakes data research.</p>
 				</header>
 				<div class="row">
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
-							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="Thesis" /></a>
-							<h3>Decoding GenAI</h3>
+							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+							<h3><a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank">Decoding GenAI</a></h3>
 							<p>NLP architecture and discourse analysis thesis.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
-							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="RNW" /></a>
-							<h3>Automated Insights</h3>
+							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<h3><a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank">Automated Insights</a></h3>
 							<p>End-to-end KPI automation for media impact reporting.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
-							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="Internews" /></a>
-							<h3>Rooted in Trust</h3>
+							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+							<h3><a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank">Rooted in Trust</a></h3>
 							<p>Data engineering for information ecosystem analysis.</p>
 						</article>
 					</div>
@@ -217,13 +173,11 @@
 
 		<article id="contact" class="wrapper style4">
 			<div class="container medium">
-				<header>
-					<h2>Let's Engineer Something</h2>
-				</header>
+				<header><h2>Connect with me</h2></header>
 				<ul class="social">
-					<li><a href="mailto:shihab.masri@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					<li><a href="https://linkedin.com/in/shihab-masri" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/shehab89" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li><a href="mailto:shihab.masri@gmail.com" class="icon solid fa-envelope"></a></li>
+					<li><a href="https://linkedin.com/in/shihab-masri" target="_blank" class="icon brands fa-linkedin-in"></a></li>
+					<li><a href="https://github.com/shehab89" target="_blank" class="icon brands fa-github"></a></li>
 				</ul>
 			</div>
 		</article>
