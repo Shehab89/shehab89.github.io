@@ -1,109 +1,168 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Shehab Al-Masri | Data Portfolio</title>
+	<title>Shehab Al-Masri | Data Science Portfolio</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
+		/* ── ENHANCED THEME VARIABLES ── */
 		:root {
-			--deep: #020617;
-			--glass-bg: rgba(15, 23, 42, 0.8);
-			--accent-blue: #38bdf8;
-			--accent-purple: #a855f7;
-			--text-dim: #94a3b8;
-			--text-bright: #f1f5f9;
+			--bg-deep: #030712;
+			--glass-card: rgba(17, 24, 39, 0.75);
+			--accent-primary: #38bdf8;  /* Vibrant Sky Blue */
+			--accent-secondary: #818cf8; /* Soft Indigo */
+			--text-main: #94a3b8;       /* Slate text */
+			--text-bright: #f8fafc;     /* White/Ice text */
+			--white: #ffffff;
+			--nav-bg: rgba(3, 7, 18, 0.9);
 		}
 
+		/* ── CORE LAYOUT & BACKGROUND ── */
 		body {
-			background-color: var(--deep);
-			/* site-bg.png used with a subtle gradient mask */
+			background-color: var(--bg-deep);
+			/* Implementing your uploaded image with a dark overlay for legibility */
 			background-image: 
-				linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)), 
+				linear-gradient(rgba(3, 7, 18, 0.8), rgba(3, 7, 18, 0.9)), 
 				url('images/site-bg.png');
 			background-size: cover;
 			background-position: center;
-			background-attachment: fixed; /* Parallax effect */
-			color: var(--text-dim);
-			font-family: 'JetBrains Mono', monospace; /* Modern tech font */
+			background-attachment: fixed;
+			color: var(--text-main);
+			font-family: 'DM Sans', sans-serif;
 			line-height: 1.8;
+			margin: 0;
 		}
 
-		h1, h2, h3 { 
+		h1, h2, h3, .section-label { 
 			font-family: 'Sora', sans-serif; 
 			color: var(--text-bright) !important;
-			text-transform: uppercase;
 			letter-spacing: -0.02em;
 		}
 
-		strong { color: var(--accent-blue) !important; text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+		strong { color: var(--accent-primary) !important; }
 
-		/* ── GLASS CARD EVOLUTION ── */
-		.box.style1, .impact-card {
-			background: var(--glass-bg) !important;
-			backdrop-filter: blur(16px);
-			border: 1px solid rgba(255, 255, 255, 0.05);
-			border-radius: 20px;
-			padding: 2.5rem;
-			transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+		/* ── NAVIGATION ── */
+		#nav {
+			background: var(--nav-bg);
+			backdrop-filter: blur(12px);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+			position: fixed;
+			width: 100%;
+			z-index: 100;
 		}
 
-		.box.style1:hover {
-			border-color: var(--accent-blue);
-			transform: translateY(-10px) scale(1.02);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 15px var(--accent-blue);
+		#nav a {
+			font-family: 'Sora', sans-serif;
+			font-weight: 600;
+			color: var(--text-main);
+			transition: color 0.3s;
 		}
 
-		/* ── DATA TAGS ── */
-		.impact-tag {
-			background: rgba(168, 85, 247, 0.1);
-			color: var(--accent-purple);
-			border: 1px solid rgba(168, 85, 247, 0.3);
-			padding: 2px 10px;
-			border-radius: 4px;
-			font-size: 0.7rem;
-			font-weight: 700;
-			display: inline-block;
-			margin-bottom: 1rem;
-		}
+		#nav a:hover { color: var(--accent-primary); }
 
-		/* ── LOGO BRANDING ── */
+		/* ── LOGO CONTAINERS ── */
 		.logo-box {
-			background: #ffffff;
-			border-radius: 12px;
-			height: 100px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 15px;
+			height: 110px;
 			margin-bottom: 1.5rem;
-			transition: filter 0.3s;
+			background: var(--white); /* White background ensures logo colors pop */
+			border-radius: 16px;
+			padding: 20px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+			transition: transform 0.3s ease;
 		}
-		
-		.logo-box:hover { filter: brightness(1.1); }
-		.logo-box img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
-		/* ── BUTTONS ── */
-		.btn-send {
-			background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-			color: #fff !important;
-			border: none;
-			border-radius: 8px;
-			padding: 1.2rem 3rem;
+		.logo-box img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+		}
+
+		/* ── GLASS CARDS (Arsenal & Impact) ── */
+		.box.style1, .impact-card {
+			background: var(--glass-card) !important;
+			backdrop-filter: blur(15px);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 24px;
+			height: 100%;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			padding: 2rem;
+		}
+
+		.box.style1:hover, .impact-card:hover {
+			border-color: var(--accent-primary);
+			transform: translateY(-12px);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
+		}
+
+		/* ── IMPACT TAGS ── */
+		.impact-tag {
+			display: inline-block;
+			font-size: 0.65rem;
 			font-weight: 700;
-			cursor: pointer;
-			box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
-			transition: transform 0.3s;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--accent-primary);
+			background: rgba(56, 189, 248, 0.1);
+			border: 1px solid rgba(56, 189, 248, 0.2);
+			border-radius: 50px;
+			padding: 0.3rem 1rem;
+			margin-bottom: 1rem;
 		}
 
-		.btn-send:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(168, 85, 247, 0.4); }
+		/* ── BUTTONS & CONTACT ── */
+		.btn-send {
+			background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+			color: #ffffff !important;
+			font-family: 'Sora', sans-serif;
+			font-weight: 700;
+			border: none;
+			border-radius: 12px;
+			padding: 1rem 2.5rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 10px 20px rgba(129, 140, 248, 0.3);
+		}
 
-		#nav {
-			background: rgba(2, 6, 23, 0.9);
-			backdrop-filter: blur(10px);
-			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		.btn-send:hover {
+			transform: scale(1.03);
+			box-shadow: 0 15px 30px rgba(129, 140, 248, 0.5);
+		}
+
+		.contact-form input, .contact-form textarea {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 12px;
+			padding: 1rem;
+			color: var(--text-bright);
+			margin-bottom: 1.2rem;
+			width: 100%;
+		}
+
+		.contact-form input:focus {
+			border-color: var(--accent-primary);
+			outline: none;
+		}
+
+		/* ── SECTION DIVIDER ── */
+		.section-divider {
+			width: 60px; height: 4px;
+			background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+			border-radius: 10px;
+			margin: 1rem auto 2.5rem;
+		}
+
+		#footer {
+			background: rgba(3, 7, 18, 0.95);
+			padding: 3rem;
+			border-top: 1px solid rgba(255, 255, 255, 0.05);
+			color: var(--text-main);
+			font-size: 0.85rem;
 		}
 	</style>
 </head>
@@ -114,24 +173,22 @@
 			<li><a href="#top">Profile</a></li>
 			<li><a href="#work">Arsenal</a></li>
 			<li><a href="#portfolio">Impact</a></li>
-			<li><a href="#contact">Connect</a></li>
+			<li><a href="#contact">Contact</a></li>
 		</ul>
 	</nav>
 
-	<article id="top" class="wrapper style1" style="padding-top: 12em;">
+	<article id="top" class="wrapper style1" style="padding-top: 8em;">
 		<div class="container">
 			<div class="row">
 				<div class="col-4 col-12-medium">
 					<span class="image fit">
-						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius: 20px; border: 1px solid var(--accent-blue);" />
+						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);" />
 					</span>
 				</div>
 				<div class="col-8 col-12-medium">
 					<header>
-						<h1 style="font-size: 3.8rem; line-height: 1;">SHEHAB <br><strong>AL-MASRI</strong></h1>
-						<p style="font-size: 1.1rem; border-left: 3px solid var(--accent-purple); padding-left: 20px; margin-top: 20px;">
-							DATA SCIENTIST | NLP RESEARCHER | HUMANITARIAN STRATEGIST
-						</p>
+						<h1 style="font-size: 3.5rem;">Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+						<p style="font-size: 1.25rem;">I bridge the gap between high-stakes humanitarian operations and data-driven decision making.</p>
 					</header>
 				</div>
 			</div>
@@ -140,30 +197,84 @@
 
 	<article id="work" class="wrapper style2">
 		<div class="container">
-			<header style="text-align:center; margin-bottom: 4rem;">
-				<h2>Proven Track Record</h2>
+			<header class="style1" style="text-align:center;">
+				<h2>My Arsenal</h2>
+				<div class="section-divider"></div>
 			</header>
 			<div class="row aln-center">
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
-						<h3>UU NLP</h3>
-						<p>Leading discourse analysis research with advanced computational linguistics.</p>
+						<div class="logo-box"><img src="images/uu-logo.png" alt="UU" /></div>
+						<h3>Utrecht University</h3>
+						<p>Advanced NLP research and computational discourse analysis.</p>
+					</section>
+				</div>
+				<div class="col-4 col-6-medium col-12-small">
+					<section class="box style1">
+						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW" /></div>
+						<h3>RNW Media</h3>
+						<p>KPI analysis for global digital media projects.</p>
 					</section>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 						<h3>Internews</h3>
-						<p>Developing data pipelines for high-integrity field operations globally.</p>
+						<p>Leading data collection and visualization for field operations.</p>
 					</section>
 				</div>
 				<div class="col-4 col-6-medium col-12-small">
 					<section class="box style1">
 						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
 						<h3>ACLED</h3>
-						<p>Deciphering patterns of political violence through deep-scale analytics.</p>
+						<p>Conflict and political violence data collection and analytics.</p>
 					</section>
+				</div>
+				<div class="col-4 col-6-medium col-12-small">
+					<section class="box style1">
+						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
+						<h3>RECO</h3>
+						<p>Data management for 17,000+ humanitarian beneficiaries.</p>
+					</section>
+				</div>
+				<div class="col-4 col-6-medium col-12-small">
+					<section class="box style1">
+						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
+						<h3>Mocha Valley</h3>
+						<p>Lead data collection team and statistical analysis.</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article id="portfolio" class="wrapper style3">
+		<div class="container">
+			<header class="style1" style="text-align:center;">
+				<h2>Impact</h2>
+				<div class="section-divider"></div>
+			</header>
+			<div class="row aln-center">
+				<div class="col-4 col-6-medium col-12-small">
+					<div class="impact-card">
+						<div class="impact-tag">NLP · Research</div>
+						<h3>Global Discourse Analysis</h3>
+						<p>Developed NLP pipelines at Utrecht University to analyze large-scale multilingual corpora.</p>
+					</div>
+				</div>
+				<div class="col-4 col-6-medium col-12-small">
+					<div class="impact-card">
+						<div class="impact-tag">Conflict · Modeling</div>
+						<h3>Political Violence Tracking</h3>
+						<p>Built classification models for tracking patterns in high-risk regions at ACLED.</p>
+					</div>
+				</div>
+				<div class="col-4 col-6-medium col-12-small">
+					<div class="impact-card">
+						<div class="impact-tag">Humanitarian · Data</div>
+						<h3>Beneficiary Infrastructure</h3>
+						<p>Managed critical data systems for over 17,000 beneficiaries at RECO.</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -172,18 +283,18 @@
 	<article id="contact" class="wrapper style4">
 		<div class="container medium">
 			<header style="text-align:center;">
-				<h2>Initiate Protocol</h2>
-				<p>Ready to deploy data-driven solutions for your next high-impact mission.</p>
+				<h2>Get in Touch</h2>
+				<div class="section-divider"></div>
 			</header>
 			<div class="row">
 				<div class="col-12 contact-form">
 					<form method="post" action="#">
 						<div class="row">
-							<div class="col-6 col-12-small"><input type="text" placeholder="Identity / Name" /></div>
-							<div class="col-6 col-12-small"><input type="email" placeholder="Secure Email" /></div>
-							<div class="col-12"><textarea placeholder="Transmission Details / Message..."></textarea></div>
+							<div class="col-6 col-12-small"><input type="text" placeholder="Name" /></div>
+							<div class="col-6 col-12-small"><input type="email" placeholder="Email" /></div>
+							<div class="col-12"><textarea placeholder="Your message..."></textarea></div>
 							<div class="col-12" style="text-align:center;">
-								<button type="submit" class="btn-send">Send Signal</button>
+								<button type="submit" class="btn-send">Send Message</button>
 							</div>
 						</div>
 					</form>
@@ -192,8 +303,8 @@
 		</div>
 	</article>
 
-	<div id="footer" style="text-align:center; padding: 4rem; background: var(--deep); border-top: 1px solid rgba(255,255,255,0.05);">
-		<p>&copy; 2026 SHEHAB AL-MASRI // SYSTEM STATUS: ACTIVE</p>
+	<div id="footer">
+		© 2026 Shehab Al-Masri · Data Science Portfolio
 	</div>
 
 	<script src="assets/js/jquery.min.js"></script>
