@@ -6,58 +6,39 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* CORE THEME OVERRIDE */
+			/* CORE THEME */
 			body {
 				background-color: #0f172a;
-				background-image: url("images/site-bg.png"); /* */
+				background-image: url("images/site-bg.png?v=1"); /* Cache buster added */
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
 				color: #94a3b8;
-				font-family: 'Inter', sans-serif;
 			}
 
-			/* UNIFORM LOGO ALIGNMENT */
+			/* FIXED LOGO CONTAINERS */
 			.logo-container {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				height: 100px; /* Forces all 6 boxes to align horizontally */
+				height: 100px;
 				margin-bottom: 1.5em;
-				background: rgba(255, 255, 255, 0.03); 
+				background: rgba(255, 255, 255, 0.05); 
 				border-radius: 8px;
 				padding: 10px;
+				overflow: hidden;
 			}
 
 			.logo-container img {
-				max-width: 85%;
-				max-height: 85%;
-				object-fit: contain; /* Prevents stretching or empty-box look */
-				filter: brightness(0) invert(1); /* Forces logos to white for dark theme */
-				opacity: 0.9;
+				max-width: 90% !important;
+				max-height: 80% !important;
+				object-fit: contain !important; /* */
+				display: block !important;
+				filter: brightness(0) invert(1); /* Forces logos to white */
 			}
 
-			/* SECTION WRAPPERS */
-			.wrapper {
-				background-color: rgba(15, 23, 42, 0.92) !important;
-				backdrop-filter: blur(10px);
-			}
-
-			/* GRID CARDS */
-			.box.style1, .box.style2 {
-				background: rgba(30, 41, 59, 0.6) !important;
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				height: 100%; 
-				display: flex;
-				flex-direction: column;
-				transition: all 0.3s ease;
-			}
-			
-			.box.style1:hover, .box.style2:hover {
-				border-color: #fbbf24; /* Gold highlight on hover */
-				transform: translateY(-5px);
-			}
-
+			.wrapper { background-color: rgba(15, 23, 42, 0.92) !important; }
+			.box.style1 { background: rgba(30, 41, 59, 0.6) !important; height: 100%; }
 			h1, h2, h3 { color: #f8fafc !important; }
 		</style>
 	</head>
@@ -76,14 +57,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab" /></span>
+						<span class="image fit"><img src="images/intro-bg.png?v=1" alt="Shehab" /></span>
 					</div>
 					<div class="col-8 col-7-large col-12-medium">
-						<header>
-							<h1><strong>Shehab Al-Masri</strong></h1>
-						</header>
+						<header><h1><strong>Shehab Al-Masri</strong></h1></header>
 						<p>Architecting scalable <strong>Data Infrastructure</strong>. Utrecht University MSc graduate specializing in <strong>Python, SQL, and Cloud Engineering</strong>.</p>
-						<a href="#work" class="button large scrolly">View Technical Architecture</a>
 					</div>
 				</div>
 			</div>
@@ -91,51 +69,48 @@
 
 		<article id="work" class="wrapper style2">
 			<div class="container">
-				<header>
-					<h2>Technical Arsenal</h2>
-					<p>Engineered data solutions for global organizations.</p>
-				</header>
+				<header><h2>Technical Arsenal</h2></header>
 				<div class="row aln-center">
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/uu-logo.png" alt="UU" /></div>
+							<div class="logo-container"><img src="images/uu-logo.png?v=1" alt="UU" /></div>
 							<h3>Utrecht University</h3>
-							<p>Applied Data Science research and computational NLP.</p>
+							<p>Applied Data Science research and NLP.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/rnw_media.png" alt="RNW" /></div>
+							<div class="logo-container"><img src="images/rnw_media.png?v=1" alt="RNW" /></div>
 							<h3>RNW Media</h3>
-							<p>Pipeline automation and 15+ real-time KPI dashboards.</p>
+							<p>Pipeline automation and 15+ real-time dashboards.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/internews-logo.jpg" alt="Internews" /></div>
+							<div class="logo-container"><img src="images/internews-logo.jpg?v=1" alt="Internews" /></div>
 							<h3>Internews</h3>
-							<p>Engineering robust data pipelines for information integrity.</p>
+							<p>Engineering robust data pipelines.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/image_7b78d4.png" alt="ACLED" /></div>
+							<div class="logo-container"><img src="images/image_7b78d4.png?v=1" alt="ACLED" /></div>
 							<h3>ACLED</h3>
-							<p>Political violence data modeling and conflict research pipelines.</p>
+							<p>Conflict data modeling and research pipelines.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/image_7b803a.png" alt="RECO" /></div>
+							<div class="logo-container"><img src="images/image_7b803a.png?v=1" alt="RECO" /></div>
 							<h3>RECO</h3>
-							<p>Humanitarian data management and beneficiary analytics.</p>
+							<p>Humanitarian data management and analytics.</p>
 						</section>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<section class="box style1">
-							<div class="logo-container"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
+							<div class="logo-container"><img src="images/mochavalley_logo.jpeg?v=1" alt="Mocha" /></div>
 							<h3>Mocha Valley</h3>
-							<p>Statistical analysis and survey engineering for agriculture.</p>
+							<p>Statistical analysis and survey engineering.</p>
 						</section>
 					</div>
 				</div>
@@ -144,46 +119,30 @@
 
 		<article id="portfolio" class="wrapper style3">
 			<div class="container">
-				<header>
-					<h2>Impact Pipelines</h2>
-					<p>Technical implementation of data-driven research.</p>
-				</header>
+				<header><h2>Impact Pipelines</h2></header>
 				<div class="row">
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
 							<a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" class="image featured"><img src="images/pic01.jpg" alt="GenAI" /></a>
 							<h3><a href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank">Decoding GenAI</a></h3>
-							<p>NLP architecture and global discourse analysis thesis.</p>
+							<p>NLP architecture and discourse analysis.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
-							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="Automated Insights" /></a>
+							<a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank" class="image featured"><img src="images/pic04.jpg" alt="Insights" /></a>
 							<h3><a href="https://www.rnw.media/wp-content/uploads/2025/03/2024-DMIS-Report-Final.pdf" target="_blank">Automated Insights</a></h3>
-							<p>End-to-end KPI automation for media impact reporting.</p>
+							<p>End-to-end KPI automation.</p>
 						</article>
 					</div>
 					<div class="col-4 col-6-medium col-12-small">
 						<article class="box style1">
-							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="Rooted in Trust" /></a>
+							<a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" class="image featured"><img src="images/pic05.jpg" alt="Trust" /></a>
 							<h3><a href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank">Rooted in Trust</a></h3>
-							<p>Data engineering for information ecosystem analysis.</p>
+							<p>Data engineering for ecosystem analysis.</p>
 						</article>
 					</div>
 				</div>
-			</div>
-		</article>
-
-		<article id="contact" class="wrapper style4">
-			<div class="container medium">
-				<header>
-					<h2>Connect with me</h2>
-				</header>
-				<ul class="social">
-					<li><a href="mailto:shihab.masri@gmail.com" class="icon solid fa-envelope"></a></li>
-					<li><a href="https://linkedin.com/in/shihab-masri" target="_blank" class="icon brands fa-linkedin-in"></a></li>
-					<li><a href="https://github.com/shehab89" target="_blank" class="icon brands fa-github"></a></li>
-				</ul>
 			</div>
 		</article>
 
