@@ -4,6 +4,10 @@
 		<title>Shehab Al-Masri | Data Science Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Shehab Al-Masri — Senior Data Analyst specialising in humanitarian data systems, conflict analytics, and social impact. MSc Utrecht University. Based in the Netherlands." />
+		<meta property="og:title" content="Shehab Al-Masri | Data Science Portfolio" />
+		<meta property="og:description" content="Senior Data Analyst building data pipelines for international NGOs in conflict zones. Published researcher. Utrecht University MSc." />
+		<meta property="og:type" content="website" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -48,7 +52,8 @@
 			/* NAV */
 			#nav {
 				background: rgba(4, 8, 18, 0.78);
-				-webkit-
+				backdrop-filter: blur(16px);
+				-webkit-backdrop-filter: blur(16px);
 				border-bottom: 1px solid rgba(56, 189, 248, 0.15);
 				position: fixed;
 				top: 0; left: 0; right: 0;
@@ -143,7 +148,6 @@
 			/* GLASS CARD base */
 			.box.style1, .impact-stat, .project-card, .contact-link {
 				background: var(--card-bg);
-				-webkit-
 				border: 1px solid var(--card-border);
 				border-radius: 16px;
 				transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
@@ -250,6 +254,41 @@
 			.contact-link svg { width: 18px; height: 18px; flex-shrink: 0; }
 			.contact-note { font-size: 0.85rem; color: var(--text-muted); }
 
+			/* Project link button */
+			.project-link {
+				display: inline-flex;
+				align-items: center;
+				margin-top: 1em;
+				font-size: 0.82rem;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+				color: var(--accent) !important;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+				padding-bottom: 1px;
+				transition: border-color 0.2s, opacity 0.2s;
+			}
+			.project-link:hover {
+				border-color: var(--accent);
+				opacity: 0.8;
+			}
+
+			/* PROJECT LINKS */
+			.proj-link {
+				display: inline-flex;
+				align-items: center;
+				margin-top: 1em;
+				font-size: 0.82rem;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+				color: var(--accent) !important;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(56,189,248,0.3);
+				padding-bottom: 1px;
+				transition: border-color 0.2s, opacity 0.2s;
+			}
+			.proj-link:hover { border-color: var(--accent); opacity: 0.75; }
+
 			/* RESPONSIVE */
 			@media (max-width: 900px) { .arsenal-grid { grid-template-columns: repeat(2, 1fr); } }
 			@media (max-width: 700px) {
@@ -258,7 +297,51 @@
 				#top .col-4 { flex: 0 0 100%; max-width: 100%; }
 			}
 			@media (max-width: 480px) { .impact-grid { grid-template-columns: 1fr; } }
-</style>
+
+			/* ── SKILLS SECTION ── */
+			#skills { background: transparent !important; }
+			#skills .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+			#skills header { text-align: center; }
+
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.25rem;
+			}
+			.skill-group {
+				background: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 16px;
+				padding: 1.5em;
+			}
+			.skill-group h4 {
+				font-family: 'DM Sans', sans-serif !important;
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--accent) !important;
+				margin: 0 0 0.85em;
+			}
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4em;
+			}
+			.skill-tag {
+				font-size: 0.82rem;
+				font-weight: 500;
+				color: var(--text-secondary);
+				background: rgba(255,255,255,0.05);
+				border: 1px solid rgba(255,255,255,0.08);
+				border-radius: 5px;
+				padding: 0.25em 0.65em;
+			}
+
+			@media (max-width: 700px) {
+				.skills-grid { grid-template-columns: 1fr; }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -266,28 +349,31 @@
 			<ul class="container">
 				<li><a href="#top">Profile</a></li>
 				<li><a href="#work">Arsenal</a></li>
+				<li><a href="#skills">Skills</a></li>
 				<li><a href="#portfolio">Impact</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>
 
+		<!-- ── HERO ── -->
 		<article id="top" class="wrapper style1">
 			<div class="container">
 				<div class="row">
-					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
-					</div>
 					<div class="col-8 col-7-large col-12-medium">
 						<header>
 							<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
-							<p>Senior Data Analyst specializing in <strong>Humanitarian Social Impact</strong>.</p>
+							<p>Senior Data Analyst · Humanitarian Social Impact · Published Researcher</p>
 						</header>
-						<p>I bridge the gap between complex datasets and high-stakes decision-making. With an MSc from <strong>Utrecht University</strong>, I build scalable pipelines for international NGOs to drive transparency and strategic growth.</p>
+						<p>I build data systems that work in the hardest places. Over 4 years I've designed pipelines tracking aid delivery to <strong>17,000+ beneficiaries</strong> across Yemen's conflict zones, modelled political violence trends for <strong>ACLED</strong>, and co-authored peer-reviewed research with <strong>Utrecht University</strong> and <strong>Wageningen University & Research</strong>. My work turns fragmented field data into decisions that reach people.</p>
+					</div>
+					<div class="col-4 col-5-large col-12-medium">
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
 					</div>
 				</div>
 			</div>
 		</article>
 
+		<!-- ── TECHNICAL ARSENAL ── -->
 		<article id="work" class="wrapper style2">
 			<div class="container">
 				<header><h2>Technical Arsenal</h2><div class="accent-line"></div></header>
@@ -295,91 +381,162 @@
 					<section class="box style1">
 						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
 						<h3>Utrecht University</h3>
-						<p>Applied Data Science research and computational NLP.</p>
+						<p>MSc Applied Data Science. Computational NLP research on Arabic-language media and conflict narrative analysis.</p>
 					</section>
 					<section class="box style1">
 						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW Media" /></div>
 						<h3>RNW Media</h3>
-						<p>KPI analysis for global digital monitoring.</p>
+						<p>Built a unified KPI framework for cross-country digital audience monitoring across global media programmes.</p>
 					</section>
 					<section class="box style1">
 						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
 						<h3>Internews</h3>
-						<p>Securing data integrity and building information pipelines in conflict zones.</p>
+						<p>Secured data integrity and built information pipelines supporting media and humanitarian response in conflict zones.</p>
 					</section>
 					<section class="box style1">
 						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
 						<h3>ACLED</h3>
-						<p>Political violence trend modeling and conflict data analytics.</p>
+						<p>Modelled political violence trends and produced conflict analytics for the Middle East, including Yemen, Bahrain, Iran and Iraq.</p>
 					</section>
 					<section class="box style1">
 						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
 						<h3>RECO</h3>
-						<p>Directing humanitarian data management for 17,000+ beneficiaries.</p>
+						<p>Directed end-to-end humanitarian data management systems covering 17,000+ beneficiaries across active field programmes.</p>
 					</section>
 					<section class="box style1">
 						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
 						<h3>Mocha Valley</h3>
-						<p>Leveraging survey engineering for agricultural sustainability.</p>
+						<p>Led survey engineering and agricultural data analysis for a Wageningen University study on Yemen coffee farming sustainability.</p>
 					</section>
 				</div>
 			</div>
 		</article>
 
+		<!-- ── SKILLS ── -->
+		<article id="skills" class="wrapper style1">
+			<div class="container">
+				<header><h2>Technical Skills</h2><div class="accent-line"></div></header>
+				<div class="skills-grid">
+					<div class="skill-group">
+						<h4>Languages & Analysis</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">R</span>
+							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">Stata</span>
+							<span class="skill-tag">Bash</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Data & Pipelines</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">pandas</span>
+							<span class="skill-tag">dbt</span>
+							<span class="skill-tag">PostgreSQL</span>
+							<span class="skill-tag">KoboToolbox</span>
+							<span class="skill-tag">ODK</span>
+							<span class="skill-tag">REDCap</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Visualisation & BI</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Power BI</span>
+							<span class="skill-tag">Tableau</span>
+							<span class="skill-tag">matplotlib</span>
+							<span class="skill-tag">Plotly</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>NLP & ML</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">spaCy</span>
+							<span class="skill-tag">HuggingFace</span>
+							<span class="skill-tag">scikit-learn</span>
+							<span class="skill-tag">BERT</span>
+							<span class="skill-tag">topic modelling</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Field & Survey</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Survey design</span>
+							<span class="skill-tag">CAPI/CATI</span>
+							<span class="skill-tag">M&E frameworks</span>
+							<span class="skill-tag">MSNA</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Tools & Platforms</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Git</span>
+							<span class="skill-tag">QGIS</span>
+							<span class="skill-tag">SPSS</span>
+							<span class="skill-tag">Google Workspace</span>
+							<span class="skill-tag">OCHA HDX</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
 
-		<!-- ── IMPACT SECTION ── -->
-		<article id="portfolio" class="wrapper style1">
+		<!-- ── IMPACT ── -->
+		<article id="portfolio" class="wrapper style2">
 			<div class="container">
 				<header><h2>Impact</h2><div class="accent-line"></div></header>
 
 				<div class="impact-grid">
 					<div class="impact-stat">
 						<span class="number">17,000+</span>
-						<span class="label">Beneficiaries covered by humanitarian data systems</span>
+						<span class="label">Beneficiaries tracked across humanitarian field programmes</span>
 					</div>
 					<div class="impact-stat">
 						<span class="number">6</span>
-						<span class="label">International NGOs &amp; research institutions served</span>
+						<span class="label">International NGOs & research institutions</span>
 					</div>
 					<div class="impact-stat">
-						<span class="number">4+</span>
-						<span class="label">Years building data pipelines in conflict-affected regions</span>
+						<span class="number">4</span>
+						<span class="label">Peer-reviewed & institutional publications</span>
 					</div>
 				</div>
 
 				<div class="project-list">
 					<div class="project-card">
-						<span class="tag">NLP · Research</span>
-						<h3>Computational Discourse Analysis</h3>
-						<p>MSc thesis at Utrecht University applying NLP models to identify narrative shifts in Arabic-language media across conflict contexts.</p>
+						<span class="tag">NLP · MSc Thesis</span>
+						<h3>Global Media Analysis of Generative AI</h3>
+						<p>Utrecht University MSc thesis analysing how generative AI is framed across regional media globally — applying computational NLP to map argument structures and narrative divergence.</p>
+						<a class="project-link" href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" rel="noopener">Read Thesis →</a>
 					</div>
 					<div class="project-card">
-						<span class="tag">Data Engineering</span>
-						<h3>Humanitarian Pipeline — RECO</h3>
-						<p>Designed and deployed end-to-end data management infrastructure tracking 17,000+ beneficiaries across active field programmes.</p>
+						<span class="tag">Conflict Analytics · ACLED</span>
+						<h3>Religious Repression & Disorder: Middle East</h3>
+						<p>Contributed to ACLED's Religion pilot — real-time data collection and trend analysis on religious repression events across Bahrain, Iran, Iraq, and Yemen (June 2021).</p>
+						<a class="project-link" href="https://acleddata.com/report/religious-repression-and-disorder-bahrain-iran-iraq-and-yemen" target="_blank" rel="noopener">Read Report →</a>
 					</div>
 					<div class="project-card">
-						<span class="tag">Conflict Analytics</span>
-						<h3>Political Violence Modeling — ACLED</h3>
-						<p>Built trend models and dashboards over conflict event datasets to surface actionable intelligence for policy and response teams.</p>
+						<span class="tag">Agricultural Research · Wageningen</span>
+						<h3>Coffee Farming Practices in Yemen</h3>
+						<p>Survey engineering and data analysis for a Wageningen Economic Research study (2023-044) on coffee farming viability, qat competition, and sustainable development pathways in Bani Matar.</p>
+						<a class="project-link" href="https://research.wur.nl/en/publications/understanding-coffee-farming-practices-and-prospects-in-yemen-cas/" target="_blank" rel="noopener">Read Publication →</a>
 					</div>
 					<div class="project-card">
-						<span class="tag">Digital Monitoring</span>
-						<h3>Global KPI Framework — RNW Media</h3>
-						<p>Established a unified KPI analysis system for cross-country digital audience monitoring, improving reporting consistency and speed.</p>
+						<span class="tag">Humanitarian Data · Internews</span>
+						<h3>Information Environment Assessment — Yemen</h3>
+						<p>Built data collection and analysis pipelines for Internews's Information Environment Assessment in Yemen, mapping information access, trust, and media consumption across conflict-affected populations.</p>
+						<a class="project-link" href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" rel="noopener">View Report →</a>
 					</div>
 				</div>
 			</div>
 		</article>
 
-		<!-- ── CONTACT SECTION ── -->
-		<article id="contact" class="wrapper style2">
+		<!-- ── CONTACT ── -->
+		<article id="contact" class="wrapper style1">
 			<div class="container">
 				<header><h2>Get in Touch</h2><div class="accent-line"></div></header>
 				<p class="sub">Open to data roles in humanitarian, policy, and social-impact organisations. Let's connect.</p>
 
 				<div class="contact-links">
-					<a class="contact-link" href="/cdn-cgi/l/email-protection#b2c1dad7dad3d09cd3dedfd3c1c0dbf2d7cad3dfc2ded79cd1dddf">
+					<a class="contact-link" href="mailto:shehab.almasri@example.com">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
 						</svg>
@@ -391,7 +548,7 @@
 						</svg>
 						LinkedIn
 					</a>
-					<a class="contact-link" href="https://github.com/shehab-almasri" target="_blank" rel="noopener">
+					<a class="contact-link" href="https://github.com/shehab89" target="_blank" rel="noopener">
 						<svg viewBox="0 0 24 24" fill="currentColor">
 							<path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
 						</svg>
@@ -404,9 +561,11 @@
 						Download CV
 					</a>
 				</div>
-
 				<p class="contact-note">Based in the Netherlands &middot; Available for remote &amp; on-site roles</p>
 			</div>
 		</article>
 
-		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
