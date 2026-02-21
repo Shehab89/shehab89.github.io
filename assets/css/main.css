@@ -8,136 +8,101 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
-		/* ── OVERRIDING MAIN.CSS FOR HIGH-END TECH LOOK ── */
+		/* ── CORE TRANSPARENCY & BACKGROUND ── */
 		:root {
-			--bg-deep: #020617;           /* Deep Obsidian */
-			--glass: rgba(15, 23, 42, 0.7); /* Frosted Glass Effect */
-			--accent: #38bdf8;            /* Electric Sky Blue */
-			--accent-alt: #818cf8;        /* Indigo */
-			--text-bright: #f8fafc;       /* Ice White */
-			--text-soft: #94a3b8;         /* Slate Gray */
+			--accent: #38bdf8;            /* Electric Blue */
+			--glass-bg: rgba(15, 23, 42, 0.75); /* Deep semi-transparent slate */
+			--text-bright: #f8fafc;
+			--text-soft: #94a3b8;
 		}
 
-		/* ── FIXED PARALLAX BACKGROUND ── */
 		body {
-			background-color: var(--bg-deep);
+			background-color: #020617 !important; /* Base fallback */
+			/* Background image is fixed so content scrolls over it */
 			background-image: 
-				linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)), 
-				url('images/site-bg.png'); /* References your uploaded image */
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed; /* Parallax: background stays, content slides */
-			color: var(--text-soft);
-			padding-top: 3.5em;
+				linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.85)), 
+				url('images/site-bg.png') !important;
+			background-size: cover !important;
+			background-position: center !important;
+			background-attachment: fixed !important;
+			color: var(--text-soft) !important;
 		}
 
-		/* ── TYPOGRAPHY ── */
-		h1, h2, h3, h4, strong {
-			font-family: 'Sora', sans-serif;
-			color: var(--text-bright) !important;
+		/* ── REMOVING TEMPLATE BACKGROUNDS ── */
+		#nav, .wrapper, .wrapper.style1, .wrapper.style2, .wrapper.style3, .wrapper.style4 {
+			background: transparent !important;
+			box-shadow: none !important;
+			border: none !important;
 		}
 
-		h1 { font-size: 3.5em; letter-spacing: -0.05em; font-weight: 700; }
-		h2 { font-size: 2.25em; letter-spacing: -0.02em; }
-
-		/* ── WRAPPERS (Removing flat bg colors from main.css) ── */
-		.wrapper { background: transparent !important; box-shadow: none !important; }
-		.wrapper.style1, .wrapper.style2, .wrapper.style3 { background: transparent !important; }
-
-		/* ── GLASSMOPHISM CARDS ── */
-		.box.style1 {
-			background: var(--glass) !important;
-			backdrop-filter: blur(12px); /* Frosted glass effect */
+		/* ── GLASSMOPHISM FOR CARDS & NAV ── */
+		#nav {
+			background: rgba(2, 6, 23, 0.8) !important;
+			backdrop-filter: blur(12px);
 			-webkit-backdrop-filter: blur(12px);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 24px;
-			padding: 3.5rem 2rem;
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+		}
+
+		.box.style1 {
+			background: var(--glass-bg) !important;
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
+			border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			border-radius: 24px !important;
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+			transition: all 0.4s ease;
 		}
 
 		.box.style1:hover {
-			transform: translateY(-15px) scale(1.02);
-			border-color: var(--accent);
+			border-color: var(--accent) !important;
+			transform: translateY(-10px);
 			box-shadow: 0 30px 60px rgba(56, 189, 248, 0.2) !important;
 		}
 
+		/* ── TYPOGRAPHY ── */
+		h1, h2, h3, strong {
+			font-family: 'Sora', sans-serif !important;
+			color: var(--text-bright) !important;
+		}
+
+		h1 { font-weight: 700; letter-spacing: -0.05em; }
+		strong { color: var(--accent) !important; }
+
 		/* ── LOGO BRANDING ── */
 		.logo-box {
-			background: #ffffff;
+			background: #ffffff !important; /* Keep white for brand logo clarity */
 			border-radius: 16px;
-			height: 110px;
+			height: 100px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 20px;
+			padding: 15px;
 			margin-bottom: 2rem;
-			box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 		}
 
 		.logo-box img {
-			max-width: 100%;
-			max-height: 100%;
+			max-width: 90%;
+			max-height: 90%;
 			object-fit: contain;
 		}
 
-		/* ── NAVIGATION (Synced with main.css) ── */
-		#nav {
-			background-color: rgba(2, 6, 23, 0.8) !important;
-			backdrop-filter: blur(10px);
-			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		}
-
-		#nav a { font-family: 'Sora', sans-serif; font-size: 0.85em; letter-spacing: 0.1em; text-transform: uppercase; }
-		#nav a.active { background: var(--accent) !important; }
-
-		/* ── IMPACT TAGS ── */
-		.impact-tag {
-			display: inline-block;
-			background: rgba(56, 189, 248, 0.1);
-			color: var(--accent);
-			border: 1px solid rgba(56, 189, 248, 0.3);
-			padding: 0.3rem 1rem;
-			border-radius: 50px;
-			font-size: 0.7rem;
-			font-weight: 700;
-			text-transform: uppercase;
-			margin-bottom: 1.5rem;
-		}
-
-		/* ── BUTTONS (The Arsenal Style) ── */
+		/* ── BUTTONS ── */
 		input[type="submit"], .button {
-			background: linear-gradient(135deg, var(--accent), var(--accent-alt)) !important;
-			border-radius: 12px !important;
-			padding: 1.2rem 3rem !important;
+			background: linear-gradient(135deg, var(--accent), #6366f1) !important;
 			border: none !important;
-			font-family: 'Sora', sans-serif;
+			border-radius: 12px !important;
+			color: #fff !important;
 			font-weight: 700 !important;
 			text-shadow: none !important;
-			box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3) !important;
+			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3) !important;
 		}
 
-		input[type="submit"]:hover {
-			transform: scale(1.05);
-			box-shadow: 0 15px 35px rgba(56, 189, 248, 0.5) !important;
-		}
-
-		/* ── DIVIDERS ── */
-		.section-divider {
-			width: 60px; height: 4px;
-			background: var(--accent);
-			border-radius: 10px;
-			margin: 1.5rem auto 3rem;
-		}
-
-		/* ── CONTACT FORM ── */
-		.wrapper.style4 form input[type=text],
-		.wrapper.style4 form input[type=email],
-		.wrapper.style4 form textarea {
-			background: rgba(255, 255, 255, 0.03) !important;
+		/* ── FORM FIELDS ── */
+		input[type=text], input[type=email], textarea {
+			background: rgba(255, 255, 255, 0.05) !important;
 			border: 1px solid rgba(255, 255, 255, 0.1) !important;
-			border-radius: 12px;
-			color: var(--text-bright);
+			color: var(--text-bright) !important;
+			border-radius: 10px !important;
 		}
 	</style>
 </head>
@@ -152,18 +117,18 @@
 		</ul>
 	</nav>
 
-	<article id="top" class="wrapper style1" style="padding-top: 12em; text-align: left;">
+	<article id="top" class="wrapper style1" style="padding-top: 12em;">
 		<div class="container">
 			<div class="row">
 				<div class="col-4 col-12-medium">
 					<span class="image fit">
-						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:30px; border: 3px solid var(--accent); box-shadow: 0 0 30px var(--accent-glow);" />
+						<img src="images/intro-bg.png" alt="Shehab Al-Masri" style="border-radius:30px; border: 2px solid var(--accent);" />
 					</span>
 				</div>
 				<div class="col-8 col-12-medium">
 					<header>
-						<h1 style="line-height: 1.1;">SHEHAB <br><strong>AL-MASRI</strong></h1>
-						<p style="font-size: 1.4em; margin-top: 1em;">Bridging the gap between <strong>Humanitarian Operations</strong> and <strong>Data-Driven Intelligence</strong>.</p>
+						<h1>SHEHAB <br><strong>AL-MASRI</strong></h1>
+						<p style="font-size: 1.5em; color: var(--text-bright);">Bridging the gap between <strong>Humanitarian Operations</strong> and <strong>Data Science</strong>.</p>
 					</header>
 				</div>
 			</div>
@@ -174,93 +139,7 @@
 		<div class="container">
 			<header style="text-align:center;">
 				<h2>The Arsenal</h2>
-				<div class="section-divider"></div>
+				<p>Global organizations fueled by my data strategies.</p>
 			</header>
 			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
-						<h3>Utrecht University</h3>
-						<p>Advanced NLP research and computational discourse analysis for high-scale multilingual projects.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
-						<h3>Internews</h3>
-						<p>Architecting information pipelines and leading visualization strategies for field operations.</p>
-					</section>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
-						<h3>ACLED</h3>
-						<p>Modeling conflict patterns and tracking political violence across global high-risk regions.</p>
-					</section>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header style="text-align:center;">
-				<h2>Impact Projects</h2>
-				<div class="section-divider"></div>
-			</header>
-			<div class="row aln-center">
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="box style1">
-						<div class="impact-tag">NLP · Python</div>
-						<h3>Multilingual Discourse</h3>
-						<p>Automated identification of sentiment and framing in conflict-related news using BERT.</p>
-					</div>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="box style1">
-						<div class="impact-tag">GIS · Visualization</div>
-						<h3>Conflict Mapping</h3>
-						<p>Dynamic dashboarding of political violence trends for rapid response humanitarian teams.</p>
-					</div>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<div class="box style1">
-						<div class="impact-tag">Data Infrastructure</div>
-						<h3>17k+ Beneficiaries</h3>
-						<p>Optimized database workflows for RECO ensuring real-time integrity of field distributions.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article id="contact" class="wrapper style4">
-		<div class="container medium">
-			<header style="text-align:center;">
-				<h2>Initiate Contact</h2>
-				<p>Ready to deploy data-driven solutions for your next high-impact mission.</p>
-				<div class="section-divider"></div>
-			</header>
-			<form method="post" action="#">
-				<div class="row gtr-50">
-					<div class="col-6 col-12-small"><input type="text" placeholder="Identity / Name" /></div>
-					<div class="col-6 col-12-small"><input type="email" placeholder="Secure Email Address" /></div>
-					<div class="col-12"><textarea placeholder="Transmission Details / Message..."></textarea></div>
-					<div class="col-12" style="text-align:center;">
-						<input type="submit" value="Send Message Signal" />
-					</div>
-				</div>
-			</form>
-		</div>
-	</article>
-
-	<div id="footer" style="padding: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-		<p>© 2026 SHEHAB AL-MASRI // SYSTEM STATUS: ACTIVE</p>
-	</div>
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/main.js"></script>
-
-</body>
-</html>
+				<div
