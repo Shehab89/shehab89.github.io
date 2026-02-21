@@ -8,25 +8,30 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 	<style>
-		/* ── ENHANCED THEME VARIABLES ── */
+		/* ── ENHANCED THEME VARIABLES (aligned palette) ── */
 		:root {
 			--bg-deep: #030712;
-			--glass-card: rgba(17, 24, 39, 0.75);
-			--accent-primary: #38bdf8;  /* Vibrant Sky Blue */
-			--accent-secondary: #818cf8; /* Soft Indigo */
-			--text-main: #94a3b8;       /* Slate text */
-			--text-bright: #f8fafc;     /* White/Ice text */
+			--bg-overlay-top: rgba(3, 7, 18, 0.75);
+			--bg-overlay-bottom: rgba(3, 7, 18, 0.92);
+			--glass-card: rgba(17, 24, 39, 0.8);
+			--accent-primary: #38bdf8;
+			--accent-secondary: #818cf8;
+			--text-main: #94a3b8;
+			--text-bright: #f8fafc;
 			--white: #ffffff;
-			--nav-bg: rgba(3, 7, 18, 0.9);
+			--nav-bg: rgba(3, 7, 18, 0.92);
+			--footer-bg: rgba(3, 7, 18, 0.96);
+			--input-bg: rgba(15, 23, 42, 0.6);
+			--border-subtle: rgba(255, 255, 255, 0.08);
+			--border-focus: rgba(56, 189, 248, 0.5);
 		}
 
 		/* ── CORE LAYOUT & BACKGROUND ── */
 		body {
 			background-color: var(--bg-deep);
-			/* Implementing your uploaded image with a dark overlay for legibility */
-			background-image: 
-				linear-gradient(rgba(3, 7, 18, 0.8), rgba(3, 7, 18, 0.9)), 
-				url('images/site-bg.png');
+			background-image:
+				linear-gradient(var(--bg-overlay-top), var(--bg-overlay-bottom)),
+				url('images/sit_bg.png');
 			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
@@ -48,7 +53,7 @@
 		#nav {
 			background: var(--nav-bg);
 			backdrop-filter: blur(12px);
-			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+			border-bottom: 1px solid var(--border-subtle);
 			position: fixed;
 			width: 100%;
 			z-index: 100;
@@ -87,7 +92,7 @@
 		.box.style1, .impact-card {
 			background: var(--glass-card) !important;
 			backdrop-filter: blur(15px);
-			border: 1px solid rgba(255, 255, 255, 0.08);
+			border: 1px solid var(--border-subtle);
 			border-radius: 24px;
 			height: 100%;
 			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -118,7 +123,7 @@
 		/* ── BUTTONS & CONTACT ── */
 		.btn-send {
 			background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-			color: #ffffff !important;
+			color: var(--white) !important;
 			font-family: 'Sora', sans-serif;
 			font-weight: 700;
 			border: none;
@@ -126,27 +131,35 @@
 			padding: 1rem 2.5rem;
 			cursor: pointer;
 			transition: all 0.3s ease;
-			box-shadow: 0 10px 20px rgba(129, 140, 248, 0.3);
+			box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
 		}
 
 		.btn-send:hover {
 			transform: scale(1.03);
-			box-shadow: 0 15px 30px rgba(129, 140, 248, 0.5);
+			box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
 		}
 
 		.contact-form input, .contact-form textarea {
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid rgba(255, 255, 255, 0.1);
+			background: var(--input-bg);
+			border: 1px solid var(--border-subtle);
 			border-radius: 12px;
 			padding: 1rem;
 			color: var(--text-bright);
 			margin-bottom: 1.2rem;
 			width: 100%;
+			box-sizing: border-box;
 		}
 
-		.contact-form input:focus {
-			border-color: var(--accent-primary);
+		.contact-form input::placeholder,
+		.contact-form textarea::placeholder {
+			color: var(--text-main);
+		}
+
+		.contact-form input:focus,
+		.contact-form textarea:focus {
+			border-color: var(--border-focus);
 			outline: none;
+			box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
 		}
 
 		/* ── SECTION DIVIDER ── */
@@ -158,11 +171,12 @@
 		}
 
 		#footer {
-			background: rgba(3, 7, 18, 0.95);
+			background: var(--footer-bg);
 			padding: 3rem;
-			border-top: 1px solid rgba(255, 255, 255, 0.05);
+			border-top: 1px solid var(--border-subtle);
 			color: var(--text-main);
 			font-size: 0.85rem;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -307,8 +321,7 @@
 		© 2026 Shehab Al-Masri · Data Science Portfolio
 	</div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 	<script src="assets/js/main.js"></script>
 
 </body>
