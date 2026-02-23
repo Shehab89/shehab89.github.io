@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<title>Shehab Al-Masri | Data Analyst & Social Impact Specialist</title>
+		<title>Shehab Al-Masri | Data Science Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Shehab Al-Masri — Data Analyst specializing in social listening, sentiment analysis, and humanitarian data systems. MSc Applied Data Science." />
-		
+		<meta name="description" content="Shehab Al-Masri — Data Analyst specialising in humanitarian data systems, conflict analytics, and social impact. MSc Utrecht University. Based in the Netherlands." />
+		<meta property="og:title" content="Shehab Al-Masri | Data Science Portfolio" />
+		<meta property="og:description" content="Data Analyst building data pipelines for international NGOs in conflict zones. Published researcher. Utrecht University MSc." />
+		<meta property="og:type" content="website" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-		
 		<style>
 			:root {
 				--accent: #38bdf8;
@@ -17,41 +18,53 @@
 				--text-primary: #ffffff;
 				--text-secondary: #cbd5e1;
 				--text-muted: #94a3b8;
-				--card-bg: rgba(6, 12, 26, 0.85);
-				--card-border: rgba(56, 189, 248, 0.2);
+				--card-bg: rgba(6, 12, 26, 0.82);
+				--card-border: rgba(56, 189, 248, 0.18);
+				--overlay: rgba(4, 8, 18, 0.35);
 			}
 
 			*, *::before, *::after { box-sizing: border-box; }
 
-			body {
-				background-color: #060c1a;
-				color: var(--text-secondary);
-				font-family: 'DM Sans', system-ui, sans-serif;
-				margin: 0;
-				min-height: 100vh;
-				position: relative;
-				overflow-x: hidden;
-			}
+body {
+    background-color: #060c1a;
+    color: var(--text-secondary);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
 
-			body::before {
-				content: "";
-				position: fixed;
-				top: 0; left: 0; right: 0; bottom: 0;
-				background-image: url("images/site-bg.jpg");
-				background-size: cover;
-				background-position: center;
-				background-attachment: fixed;
-				filter: blur(8px) brightness(0.4);
-				transform: scale(1.1);
-				z-index: -1;
-			}
-
+		body::before {
+		    content: "";
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    /* The Background Image */
+		    background-image: url("images/site-bg.jpg");
+		    background-size: cover;
+		    background-position: center top;
+		    /* 1. Darker Overlay: Adjust the 0.6 to make it darker (closer to 1) or lighter */
+		    background-color: rgba(6, 12, 26, 0.6); 
+		    background-blend-mode: overlay;
+		    /* 2. The Blur Effect: Increase the px value for more blur */
+		    filter: blur(8px);
+		    /* 3. Scale up slightly to prevent white edges caused by the blur */
+		    transform: scale(1.1);
+		    z-index: -1;
+		}
 			nav, article, footer { position: relative; z-index: 1; }
 
 			/* NAV */
 			#nav {
-				background: rgba(4, 8, 18, 0.95);
-				backdrop-filter: blur(10px);
+				background: rgba(4, 8, 18, 0.92);
+				backdrop-filter: blur(16px);
+				-webkit-backdrop-filter: blur(16px);
 				border-bottom: 1px solid rgba(56, 189, 248, 0.15);
 				position: fixed;
 				top: 0; left: 0; right: 0;
@@ -59,200 +72,502 @@
 			}
 			#nav ul.container {
 				display: flex;
+				flex-direction: row;
+				align-items: center;
 				justify-content: center;
-				gap: 2rem;
+				gap: 2.5rem;
 				list-style: none;
 				margin: 0 auto;
-				padding: 1.2rem;
+				padding: 1rem 2rem;
 				max-width: 1200px;
 			}
+			#nav ul.container li { margin: 0; padding: 0; }
 			#nav a {
 				color: var(--accent) !important;
 				font-weight: 600;
-				font-size: 0.8rem;
-				letter-spacing: 0.1em;
+				font-size: 0.78rem;
+				letter-spacing: 0.12em;
 				text-transform: uppercase;
 				text-decoration: none;
+				transition: opacity 0.2s;
 			}
+			#nav a:hover { opacity: 0.7; }
 
-			/* TYPOGRAPHY */
+			/* HEADINGS */
 			h1, h2, h3 {
-				font-family: 'DM Serif Display', serif !important;
+				font-family: 'DM Serif Display', Georgia, serif !important;
 				color: var(--text-primary) !important;
+				font-weight: 400;
+				letter-spacing: -0.02em;
 				line-height: 1.2;
+				margin-top: 0;
+				text-shadow: 0 2px 20px rgba(0,0,0,0.7);
 			}
-			h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 0.2em; }
-			h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); text-align: center; }
-			strong { color: var(--accent) !important; }
+			h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+			h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 0.5em; }
+			h3 { font-size: 1.05rem; margin-bottom: 0.4em; }
+			strong { color: var(--text-primary) !important; font-weight: 600; }
 
+			p {
+				color: var(--text-secondary);
+				font-size: 1rem;
+				line-height: 1.8;
+				margin-top: 0;
+			}
+
+			/* WRAPPERS */
+			.wrapper, .wrapper.style1, .wrapper.style2 { background: transparent !important; }
+			article.wrapper { padding: 5em 0 4em; }
+			#top.wrapper { padding-top: 7em; }
+
+			/* ACCENT LINE under section titles */
 			.accent-line {
-				width: 50px; height: 3px;
+				width: 44px; height: 3px;
 				background: var(--accent);
-				margin: 1rem auto 3rem;
-				box-shadow: 0 0 15px var(--accent-glow);
+				border-radius: 2px;
+				margin: 0 auto 2.25rem;
+				box-shadow: 0 0 14px var(--accent-glow);
+			}
+			#work .accent-line, #portfolio .accent-line { margin-top: 0; }
+
+			/* HERO */
+			#top .container > .row {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 3rem;
+			}
+			#top .col-4 { flex: 0 0 280px; max-width: 320px; }
+			#top .col-8 { flex: 1 1 400px; }
+			#top .image.fit { display: block; width: 100%; }
+			#top .image.fit img {
+				display: block; width: 100%; height: auto;
+				border-radius: 20px;
+				border: 1px solid rgba(56, 189, 248, 0.3);
+				box-shadow: 0 16px 56px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.04);
+			}
+			#top header { margin-bottom: 1em; }
+			#top header p {
+				font-size: 1.1rem;
+				color: var(--accent);
+				font-weight: 500;
+				margin-top: 0.4em;
+				margin-bottom: 0;
+				text-shadow: 0 0 28px var(--accent-glow);
 			}
 
-			/* HERO SECTION */
-			#top { padding: 10em 0 6em; }
-			.hero-content { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; }
-			.hero-text { flex: 1; min-width: 300px; }
-			.hero-image { flex: 0 0 300px; }
-			.hero-image img {
-				width: 100%;
-				border-radius: 24px;
-				border: 1px solid var(--card-border);
-				box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-			}
-
-			/* CARDS */
-			.box.style1, .project-card, .skill-group {
+			/* GLASS CARD base */
+			.box.style1, .impact-stat, .project-card, .contact-link {
 				background: var(--card-bg);
 				border: 1px solid var(--card-border);
-				border-radius: 20px;
-				padding: 2rem;
-				transition: 0.3s ease;
+				border-radius: 16px;
+				transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 			}
-			.box.style1:hover { transform: translateY(-5px); border-color: var(--accent); }
+			.box.style1:hover, .impact-stat:hover, .project-card:hover {
+				border-color: rgba(56, 189, 248, 0.5);
+				transform: translateY(-4px);
+				box-shadow: 0 20px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(56,189,248,0.08);
+			}
 
-			/* GRID SYSTEMS */
-			.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-			.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+			/* ARSENAL GRID */
+			#work .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+			#work header { text-align: center; }
+			.arsenal-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				align-items: stretch;
+			}
+			.box.style1 {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				padding: 1.5em !important;
+			}
+			.box.style1 h3 { color: var(--text-primary) !important; }
+			.box.style1 p { color: var(--text-secondary); font-size: 0.9rem; }
 
-			/* LOGO BOX */
+			/* LOGO BOXES */
 			.logo-box {
-				height: 80px;
-				background: white;
-				border-radius: 12px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 1rem;
-				margin-bottom: 1.5rem;
+				width: 100%;
+				height: 88px;
+				margin-bottom: 1em;
+				background: #fff;
+				border-radius: 10px;
+				padding: 10px 16px;
+				box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+				overflow: hidden;
+				flex-shrink: 0;
 			}
-			.logo-box img { max-height: 100%; max-width: 100%; object-fit: contain; }
+			.logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
-			/* SKILL TAGS */
-			.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-			.skill-tag {
+			/* IMPACT */
+			#portfolio .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+			#portfolio header { text-align: center; }
+			.impact-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				margin-bottom: 3rem;
+			}
+			.impact-stat { padding: 2em 1.5em; text-align: center; }
+			.impact-stat .number {
+				font-family: 'DM Serif Display', serif;
+				font-size: 2.75rem;
+				color: var(--accent);
+				line-height: 1;
+				display: block;
+				margin-bottom: 0.35em;
+				text-shadow: 0 0 32px var(--accent-glow);
+			}
+			.impact-stat .label { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+
+			.project-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+			.project-card { padding: 1.6em; }
+			.project-card .tag {
+				display: inline-block;
+				font-size: 0.7rem; font-weight: 700;
+				letter-spacing: 0.1em; text-transform: uppercase;
+				color: var(--accent);
 				background: rgba(56, 189, 248, 0.1);
-				border: 1px solid rgba(56, 189, 248, 0.2);
-				color: var(--text-primary);
-				padding: 0.3rem 0.8rem;
-				border-radius: 6px;
-				font-size: 0.85rem;
+				border: 1px solid rgba(56,189,248,0.22);
+				border-radius: 4px;
+				padding: 0.25em 0.65em;
+				margin-bottom: 0.8em;
+			}
+			.project-card h3 { font-size: 1rem; margin-bottom: 0.4em; }
+			.project-card p { font-size: 0.9rem; margin: 0; }
+
+			/* CONTACT */
+			#contact { background: transparent !important; }
+			#contact .container { max-width: 640px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+			#contact h2 { margin-bottom: 0.4em; }
+			#contact .sub { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2.5em; }
+			.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+			.contact-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				padding: 0.75em 1.5em;
+				color: var(--text-primary) !important;
+				text-decoration: none;
+				font-size: 0.9rem; font-weight: 500;
+			}
+			.contact-link:hover {
+				border-color: var(--accent) !important;
+				box-shadow: 0 0 20px var(--accent-glow);
+				transform: translateY(-2px);
+				color: var(--accent) !important;
+			}
+			.contact-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+			.contact-note { font-size: 0.85rem; color: var(--text-muted); }
+
+			/* Project link button */
+			.project-link {
+				display: inline-flex;
+				align-items: center;
+				margin-top: 1em;
+				font-size: 0.82rem;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+				color: var(--accent) !important;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+				padding-bottom: 1px;
+				transition: border-color 0.2s, opacity 0.2s;
+			}
+			.project-link:hover {
+				border-color: var(--accent);
+				opacity: 0.8;
 			}
 
-			@media (max-width: 768px) {
-				.hero-content { flex-direction: column-reverse; text-align: center; }
-				#nav ul.container { gap: 1rem; font-size: 0.7rem; }
+			/* PROJECT LINKS */
+			.proj-link {
+				display: inline-flex;
+				align-items: center;
+				margin-top: 1em;
+				font-size: 0.82rem;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+				color: var(--accent) !important;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(56,189,248,0.3);
+				padding-bottom: 1px;
+				transition: border-color 0.2s, opacity 0.2s;
+			}
+			.proj-link:hover { border-color: var(--accent); opacity: 0.75; }
+
+			/* RESPONSIVE */
+			@media (max-width: 900px) { .arsenal-grid { grid-template-columns: repeat(2, 1fr); } }
+			@media (max-width: 700px) {
+				.arsenal-grid, .project-list { grid-template-columns: 1fr; }
+				.impact-grid { grid-template-columns: repeat(2, 1fr); }
+				#top .col-4 { flex: 0 0 100%; max-width: 100%; }
+			}
+			@media (max-width: 480px) { .impact-grid { grid-template-columns: 1fr; } }
+
+			/* ── SKILLS SECTION ── */
+			#skills { background: transparent !important; }
+			#skills .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+			#skills header { text-align: center; }
+
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.25rem;
+			}
+			.skill-group {
+				background: var(--card-bg);
+				border: 1px solid var(--card-border);
+				border-radius: 16px;
+				padding: 1.5em;
+			}
+			.skill-group h4 {
+				font-family: 'DM Sans', sans-serif !important;
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--accent) !important;
+				margin: 0 0 0.85em;
+			}
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4em;
+			}
+			.skill-tag {
+				font-size: 0.82rem;
+				font-weight: 500;
+				color: var(--text-secondary);
+				background: rgba(255,255,255,0.05);
+				border: 1px solid rgba(255,255,255,0.08);
+				border-radius: 5px;
+				padding: 0.25em 0.65em;
+			}
+
+			@media (max-width: 700px) {
+				.skills-grid { grid-template-columns: 1fr; }
 			}
 		</style>
 	</head>
-	<body>
+	<body class="is-preload">
 
 		<nav id="nav">
 			<ul class="container">
 				<li><a href="#top">Profile</a></li>
 				<li><a href="#work">Arsenal</a></li>
-				<li><a href="#skills">Expertise</a></li>
+				<li><a href="#skills">Skills</a></li>
 				<li><a href="#portfolio">Impact</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>
 
-		<article id="top" class="wrapper">
-			<div class="container hero-content">
-				<div class="hero-text">
-					<header>
-						<h1>Shehab <strong>Al-Masri</strong></h1>
-						<p style="color: var(--accent); font-weight: 600; font-size: 1.2rem; letter-spacing: 0.05em;">
-							Data Analyst | Social Listening & Sentiment Specialist
-						</p>
-					</header>
-					<p>
-						I am a Data Analyst with a background in humanitarian and NGO operations, combining field experience with advanced data science training. 
-						<strong>I specialize in analyzing media and social media data</strong>, applying social listening, sentiment analysis, and topic modeling to uncover audience insights and measure impact. 
-					</p>
-					<p>
-						With a Master’s in Applied Data Science from Utrecht University, I work with <strong>Python, SQL, and Tableau</strong> to build dashboards and translate complex datasets into clear, evidence-based decisions, turning data into measurable social and strategic value.
-					</p>
-				</div>
-				<div class="hero-image">
-					<img src="images/intro-bg.png" alt="Shehab Al-Masri Profile">
-				</div>
-			</div>
-		</article>
-
-		<article id="work" class="wrapper">
+		<!-- ── HERO ── -->
+		<article id="top" class="wrapper style1">
 			<div class="container">
-				<h2>Strategic Arsenal</h2>
-				<div class="accent-line"></div>
-				<div class="grid-3">
-					<section class="box style1">
-						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University"></div>
-						<h3>Media Narrative Research</h3>
-						<p>Computational NLP research focused on how regional media frames global crises and socio-political narratives.</p>
-					</section>
-					<section class="box style1">
-						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW Media"></div>
-						<h3>Social Listening & KPIs</h3>
-						<p>Developed unified KPI frameworks for digital media monitoring, focusing on audience sentiment and engagement patterns.</p>
-					</section>
-					<section class="box style1">
-						<div class="logo-box"><img src="images/acled.png" alt="ACLED"></div>
-						<h3>Trend Forecasting</h3>
-						<p>Analyzed political violence and repression data across the Middle East to provide evidence-based strategic insights.</p>
-					</section>
-				</div>
-			</div>
-		</article>
-
-		<article id="skills" class="wrapper">
-			<div class="container">
-				<h2>Technical Expertise</h2>
-				<div class="accent-line"></div>
-				<div class="grid-3">
-					<div class="skill-group">
-						<h4 style="color: var(--accent); margin-bottom: 1rem;">Analysis & NLP</h4>
-						<div class="skill-tags">
-							<span class="skill-tag">Sentiment Analysis</span>
-							<span class="skill-tag">Topic Modeling</span>
-							<span class="skill-tag">Social Listening</span>
-							<span class="skill-tag">BERT / spaCy</span>
-						</div>
+				<div class="row">
+					<div class="col-8 col-7-large col-12-medium">
+						<header>
+							<h1>Hi, I'm <strong>Shehab Al-Masri</strong>.</h1>
+							<p>Senior Data Analyst · Humanitarian Social Impact · Published Researcher</p>
+						</header>
+						<p>I build data systems that work in the hardest places. Over 4 years I've designed pipelines tracking aid delivery to <strong>17,000+ beneficiaries</strong> across Yemen's conflict zones, modelled political violence trends for <strong>ACLED</strong>, and co-authored peer-reviewed research with <strong>Utrecht University</strong> and <strong>Wageningen University & Research</strong>. My work turns fragmented field data into decisions that reach people.</p>
 					</div>
+					<div class="col-4 col-5-large col-12-medium">
+						<span class="image fit"><img src="images/intro-bg.png" alt="Shehab Al-Masri" /></span>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<!-- ── TECHNICAL ARSENAL ── -->
+		<article id="work" class="wrapper style2">
+			<div class="container">
+				<header><h2>Technical Arsenal</h2><div class="accent-line"></div></header>
+				<div class="arsenal-grid">
+					<section class="box style1">
+						<div class="logo-box"><img src="images/uu-logo.png" alt="Utrecht University" /></div>
+						<h3>Utrecht University</h3>
+						<p>MSc Applied Data Science. Computational NLP research on Arabic-language media and conflict narrative analysis.</p>
+					</section>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/rnw_media.png" alt="RNW Media" /></div>
+						<h3>RNW Media</h3>
+						<p>Built a unified KPI framework for cross-country digital audience monitoring across global media programmes.</p>
+					</section>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/internews-logo.jpg" alt="Internews" /></div>
+						<h3>Internews</h3>
+						<p>Secured data integrity and built information pipelines supporting media and humanitarian response in conflict zones.</p>
+					</section>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/acled.png" alt="ACLED" /></div>
+						<h3>ACLED</h3>
+						<p>Modelled political violence trends and produced conflict analytics for the Middle East, including Yemen, Bahrain, Iran and Iraq.</p>
+					</section>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/reco.png" alt="RECO" /></div>
+						<h3>RECO</h3>
+						<p>Directed end-to-end humanitarian data management systems covering 17,000+ beneficiaries across active field programmes.</p>
+					</section>
+					<section class="box style1">
+						<div class="logo-box"><img src="images/mochavalley_logo.jpeg" alt="Mocha Valley" /></div>
+						<h3>Mocha Valley</h3>
+						<p>Led survey engineering and agricultural data analysis for a Wageningen University study on Yemen coffee farming sustainability.</p>
+					</section>
+				</div>
+			</div>
+		</article>
+
+		<!-- ── SKILLS ── -->
+		<article id="skills" class="wrapper style1">
+			<div class="container">
+				<header><h2>Technical Skills</h2><div class="accent-line"></div></header>
+				<div class="skills-grid">
 					<div class="skill-group">
-						<h4 style="color: var(--accent); margin-bottom: 1rem;">Data Science Stack</h4>
+						<h4>Languages & Analysis</h4>
 						<div class="skill-tags">
-							<span class="skill-tag">Python (Pandas/Scikit)</span>
-							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">Python</span>
 							<span class="skill-tag">R</span>
-							<span class="skill-tag">Tableau / Power BI</span>
+							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">Bash</span>
 						</div>
 					</div>
 					<div class="skill-group">
-						<h4 style="color: var(--accent); margin-bottom: 1rem;">Field & Strategy</h4>
+						<h4>Data & Pipelines</h4>
 						<div class="skill-tags">
-							<span class="skill-tag">Impact Measurement</span>
-							<span class="skill-tag">M&E Frameworks</span>
+							<span class="skill-tag">pandas</span>
+							<span class="skill-tag">PostgreSQL</span>
 							<span class="skill-tag">KoboToolbox</span>
-							<span class="skill-tag">Evidence-based Strategy</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Visualisation & BI</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Power BI</span>
+							<span class="skill-tag">Tableau</span>
+							<span class="skill-tag">matplotlib</span>
+							<span class="skill-tag">Plotly</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>NLP & ML</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">spaCy</span>
+							<span class="skill-tag">HuggingFace</span>
+							<span class="skill-tag">scikit-learn</span>
+							<span class="skill-tag">BERT</span>
+							<span class="skill-tag">topic modelling</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Field & Survey</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Survey design</span>
+							<span class="skill-tag">M&E frameworks</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h4>Tools & Platforms</h4>
+						<div class="skill-tags">
+							<span class="skill-tag">Git</span>
+							<span class="skill-tag">QGIS</span>
+							<span class="skill-tag">SPSS</span>
+							<span class="skill-tag">Google Workspace</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</article>
 
-		<article id="contact" class="wrapper" style="text-align: center; padding-bottom: 8em;">
+		<!-- ── IMPACT ── -->
+		<article id="portfolio" class="wrapper style2">
 			<div class="container">
-				<h2>Let's Drive Value</h2>
-				<div class="accent-line"></div>
-				<p>I focus on translating complex datasets into social impact. Whether you're looking for social listening insights or humanitarian data systems, let's connect.</p>
-				<div style="margin-top: 2rem;">
-					<a href="mailto:shehab@example.com" class="skill-tag" style="padding: 1rem 2rem; font-weight: bold; text-decoration: none;">Contact Me</a>
+				<header><h2>Impact</h2><div class="accent-line"></div></header>
+
+				<div class="impact-grid">
+					<div class="impact-stat">
+						<span class="number">17,000+</span>
+						<span class="label">Beneficiaries tracked across humanitarian field programmes</span>
+					</div>
+					<div class="impact-stat">
+						<span class="number">6</span>
+						<span class="label">International NGOs & research institutions</span>
+					</div>
+					<div class="impact-stat">
+						<span class="number">4</span>
+						<span class="label">Peer-reviewed & institutional publications</span>
+					</div>
+				</div>
+
+				<div class="project-list">
+					<div class="project-card">
+						<span class="tag">NLP · MSc Thesis</span>
+						<h3>Global Media Analysis of Generative AI</h3>
+						<p>Utrecht University MSc thesis analysing how generative AI is framed across regional media globally — applying computational NLP to map argument structures and narrative divergence.</p>
+						<a class="project-link" href="https://studenttheses.uu.nl/handle/20.500.12932/47860" target="_blank" rel="noopener">Read Thesis →</a>
+					</div>
+					<div class="project-card">
+						<span class="tag">Conflict Analytics · ACLED</span>
+						<h3>Religious Repression & Disorder: Middle East</h3>
+						<p>Contributed to ACLED's Religion pilot — real-time data collection and trend analysis on religious repression events across Bahrain, Iran, Iraq, and Yemen (June 2021).</p>
+						<a class="project-link" href="https://acleddata.com/report/religious-repression-and-disorder-bahrain-iran-iraq-and-yemen" target="_blank" rel="noopener">Read Report →</a>
+					</div>
+					<div class="project-card">
+						<span class="tag">Agricultural Research · Wageningen</span>
+						<h3>Coffee Farming Practices in Yemen</h3>
+						<p>Survey engineering and data analysis for a Wageningen Economic Research study (2023-044) on coffee farming viability, qat competition, and sustainable development pathways in Bani Matar.</p>
+						<a class="project-link" href="https://research.wur.nl/en/publications/understanding-coffee-farming-practices-and-prospects-in-yemen-cas/" target="_blank" rel="noopener">Read Publication →</a>
+					</div>
+					<div class="project-card">
+						<span class="tag">Humanitarian Data · Internews</span>
+						<h3>Information Environment Assessment — Yemen</h3>
+						<p>Built data collection and analysis pipelines for Internews's Information Environment Assessment in Yemen, mapping information access, trust, and media consumption across conflict-affected populations.</p>
+						<a class="project-link" href="https://internews.org/wp-content/uploads/2024/07/IEA-Sectional-Summary_Yemen_EN_08042023.pdf" target="_blank" rel="noopener">View Report →</a>
+					</div>
 				</div>
 			</div>
 		</article>
 
-	</body>
-</html>
+		<!-- ── CONTACT ── -->
+		<article id="contact" class="wrapper style1">
+			<div class="container">
+				<header><h2>Get in Touch</h2><div class="accent-line"></div></header>
+				<p class="sub">Open to data roles in humanitarian, policy, and social-impact organisations. Let's connect.</p>
+
+				<div class="contact-links">
+					<a class="contact-link" href="/cdn-cgi/l/email-protection#75061d101d14175b1419181406071c35100d14180519105b161a18">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+						</svg>
+						Email
+					</a>
+					<a class="contact-link" href="https://linkedin.com/in/shehab-almasri" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+						</svg>
+						LinkedIn
+					</a>
+					<a class="contact-link" href="https://github.com/shehab89" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+						</svg>
+						GitHub
+					</a>
+					<a class="contact-link" href="assets/cv-shehab-almasri.pdf" target="_blank">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+						</svg>
+						Download CV
+					</a>
+				</div>
+				<p class="contact-note">Based in the Netherlands &middot; Available for remote &amp; on-site roles</p>
+			</div>
+		</article>
+
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728
+
